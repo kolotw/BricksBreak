@@ -41,7 +41,7 @@ public class 發射器 : MonoBehaviour
             canShoot = true;
             正在發射中 = false;
             GameObject.Find("/牆/下").GetComponent<回收球>().移動發射器();
-            if (isDown)
+            if (isDown) //球已經發射完，而且全部磚塊要往下移
             {
                 downOne();
                 isDown = false;
@@ -116,6 +116,9 @@ public class 發射器 : MonoBehaviour
             nPos = bb.transform.position;
             nPos.z = nPos.z - 1;
             bb.transform.position = nPos;
+            if (bb.gameObject.GetComponent<資源>().最後要刪除 == true) {
+                Destroy(bb.gameObject); 
+            }
         }
         GameObject.Find("/00GameMaster").GetComponent<產生磚塊>().genBricks();
     }
