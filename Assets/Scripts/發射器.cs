@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -27,6 +28,8 @@ public class 發射器 : MonoBehaviour
     public bool 正在發射中 = false;
     bool isDown = false;
 
+    public 產生磚塊 gm;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,10 +43,13 @@ public class 發射器 : MonoBehaviour
         {
             canShoot = true;
             正在發射中 = false;
+            
+            
             GameObject.Find("/牆/下").GetComponent<回收球>().移動發射器();
             if (isDown) //球已經發射完，而且全部磚塊要往下移
             {
                 downOne();
+                
                 isDown = false;
             }
         }
@@ -85,6 +91,7 @@ public class 發射器 : MonoBehaviour
                 isDown = true;
                 //發射球
                 StartCoroutine(發射序列());
+                gm.第幾回合++;
             }
         }        
         
@@ -110,15 +117,21 @@ public class 發射器 : MonoBehaviour
     void downOne()
     {
         GameObject[] go = GameObject.FindGameObjectsWithTag("BRICKS");
+
         Vector3 nPos = Vector3.zero;
         foreach (GameObject bb in go)
         {
             nPos = bb.transform.position;
             nPos.z = nPos.z - 1;
             bb.transform.position = nPos;
-            if (bb.gameObject.GetComponent<資源>().最後要刪除 == true) {
-                Destroy(bb.gameObject); 
+            if(bb.gameObject.GetComponent<資源>() != null)
+            {
+                if (bb.gameObject.GetComponent<資源>().最後要刪除 == true)
+                {
+                    Destroy(bb.gameObject);
+                }
             }
+            
         }
         GameObject.Find("/00GameMaster").GetComponent<產生磚塊>().genBricks();
     }

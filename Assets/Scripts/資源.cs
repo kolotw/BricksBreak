@@ -18,39 +18,13 @@ public class 資源 : MonoBehaviour
         {
             this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.transform.CompareTag("BALL"))
+        else if (this.name == "Spread")
         {
-            switch (this.transform.name)
-            {
-                case "Spread":
-                    // 分散方向
-                    int 角度 = Random.Range(0, 359);
-                    collision.transform.eulerAngles = new Vector3(collision.transform.eulerAngles.x,
-                        角度,
-                        collision.transform.eulerAngles.z);
-                    collision.gameObject.GetComponent<Rigidbody>().velocity = collision.transform.forward * 20;
-                    最後要刪除 = true;
-                    break;
-                case "-":
-                    
-                    break;
-                case "+":
-                    break;
-                default:
-                    break;
-            }            
+            this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
         }
     }
+
+    
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "BALL") 
@@ -67,6 +41,16 @@ public class 資源 : MonoBehaviour
                 GameObject ga = Instantiate(縱向刪除, this.transform.position, Quaternion.identity);
                 Destroy(go, 0.05f);
                 Destroy(ga, 0.05f);
+                最後要刪除 = true;
+            }
+            else if (this.transform.name == "Spread")
+            {
+                // 分散方向
+                int 角度 = Random.Range(0, 359);
+                other.transform.eulerAngles = new Vector3(other.transform.eulerAngles.x,
+                    角度,
+                other.transform.eulerAngles.z);
+                other.gameObject.GetComponent<Rigidbody>().velocity = other.transform.forward * 20;
                 最後要刪除 = true;
             }
         }
