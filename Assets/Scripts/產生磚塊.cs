@@ -14,7 +14,8 @@ public class 產生磚塊 : MonoBehaviour
     Vector3 bPos = Vector3.zero;
 
     public int 第幾回合 = 0;
-
+    GameObject[] 現場磚塊;
+    int 磚塊總數 = 0;  
     // Start is called before the first frame update
     void Start()
     {
@@ -26,10 +27,13 @@ public class 產生磚塊 : MonoBehaviour
     {
         tx.text = "Ball Number: " + GameObject.Find("/發射器").GetComponent<發射器>().球數;
         rounds.text = "計算次數: " + 第幾回合.ToString();
-        //if (Input.GetKeyDown(KeyCode.Mouse1))
-        //{
-        //    genBricks();
-        //}   
+        //偵測勝敗
+        磚塊總數 = GameObject.FindGameObjectsWithTag("BRICKS").Length;
+        if(磚塊總數 == 0)
+        {
+            //WIN
+            GameObject.Find("/00GameMaster").GetComponent<gameMaster>().isWon = true;
+        }
     }
 
     public void genBricks()

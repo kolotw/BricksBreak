@@ -1,7 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class 發射器 : MonoBehaviour
@@ -123,6 +120,10 @@ public class 發射器 : MonoBehaviour
         {
             nPos = bb.transform.position;
             nPos.z = nPos.z - 1;
+            if(nPos.z < 0)
+            {
+                GameObject.Find("00GameMaster").GetComponent<gameMaster>().isLost = true;                
+            }
             bb.transform.position = nPos;
             if(bb.gameObject.GetComponent<資源>() != null)
             {
@@ -133,6 +134,6 @@ public class 發射器 : MonoBehaviour
             }
             
         }
-        GameObject.Find("/00GameMaster").GetComponent<產生磚塊>().genBricks();
+        //GameObject.Find("/00GameMaster").GetComponent<產生磚塊>().genBricks();
     }
 }

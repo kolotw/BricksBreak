@@ -28,6 +28,7 @@ public class 回收球 : MonoBehaviour
             }
             Destroy(other.gameObject);
         }
+        
     }
     public void 移動發射器()
     {

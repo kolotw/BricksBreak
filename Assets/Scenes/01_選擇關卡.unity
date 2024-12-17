@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -332,7 +331,7 @@ GameObject:
   - component: {fileID: 134956298}
   - component: {fileID: 134956297}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: LV3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -401,7 +400,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 134956298}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1018108395}
+        m_TargetAssemblyTypeName: "\u6309\u9215, Assembly-CSharp"
+        m_MethodName: LV3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &134956298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -839,7 +850,7 @@ GameObject:
   - component: {fileID: 306163511}
   - component: {fileID: 306163510}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: LV2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -908,7 +919,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 306163511}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1018108395}
+        m_TargetAssemblyTypeName: "\u6309\u9215, Assembly-CSharp"
+        m_MethodName: LV2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &306163511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2356,7 +2379,7 @@ GameObject:
   - component: {fileID: 1027621752}
   - component: {fileID: 1027621751}
   m_Layer: 5
-  m_Name: Button (5)
+  m_Name: LV6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2425,7 +2448,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1027621752}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1018108395}
+        m_TargetAssemblyTypeName: "\u6309\u9215, Assembly-CSharp"
+        m_MethodName: LV6
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1027621752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2782,7 +2817,7 @@ GameObject:
   - component: {fileID: 1258696071}
   - component: {fileID: 1258696070}
   m_Layer: 5
-  m_Name: Button (6)
+  m_Name: LV7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2851,7 +2886,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1258696071}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1018108395}
+        m_TargetAssemblyTypeName: "\u6309\u9215, Assembly-CSharp"
+        m_MethodName: LV7
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1258696071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3206,7 +3253,7 @@ GameObject:
   - component: {fileID: 1393169251}
   - component: {fileID: 1393169250}
   m_Layer: 5
-  m_Name: Button
+  m_Name: LV1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3278,7 +3325,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1018108395}
         m_TargetAssemblyTypeName: "\u6309\u9215, Assembly-CSharp"
-        m_MethodName: LVSelector
+        m_MethodName: LV1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3604,7 +3651,7 @@ GameObject:
   - component: {fileID: 1546705197}
   - component: {fileID: 1546705196}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: LV5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3673,7 +3720,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1546705197}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1018108395}
+        m_TargetAssemblyTypeName: "\u6309\u9215, Assembly-CSharp"
+        m_MethodName: LV5
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1546705197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4070,7 +4129,7 @@ GameObject:
   - component: {fileID: 1681753127}
   - component: {fileID: 1681753126}
   m_Layer: 5
-  m_Name: Button (7)
+  m_Name: LV8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4139,7 +4198,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1681753127}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1018108395}
+        m_TargetAssemblyTypeName: "\u6309\u9215, Assembly-CSharp"
+        m_MethodName: LV8
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1681753127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4609,7 +4680,7 @@ GameObject:
   - component: {fileID: 1912094910}
   - component: {fileID: 1912094909}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: LV4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4678,7 +4749,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1912094910}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1018108395}
+        m_TargetAssemblyTypeName: "\u6309\u9215, Assembly-CSharp"
+        m_MethodName: LV4
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1912094910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4730,7 +4813,7 @@ GameObject:
   - component: {fileID: 1957097010}
   - component: {fileID: 1957097009}
   m_Layer: 5
-  m_Name: Button (8)
+  m_Name: LV9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4799,7 +4882,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1957097010}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1018108395}
+        m_TargetAssemblyTypeName: "\u6309\u9215, Assembly-CSharp"
+        m_MethodName: LV9
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1957097010
 MonoBehaviour:
   m_ObjectHideFlags: 0
