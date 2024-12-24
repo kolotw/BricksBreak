@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1425,6 +1424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1485599641}
   - component: {fileID: 1485599640}
+  - component: {fileID: 1485599642}
   m_Layer: 0
   m_Name: 00GameMaster
   m_TagString: Untagged
@@ -1470,6 +1470,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1485599642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485599639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dd83c3e0c0a536469aa083a8296b576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1512077428
 GameObject:
   m_ObjectHideFlags: 0
@@ -2700,7 +2712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 522456381274067188, guid: 736cddf0c47e33e4c99918aec2134c59, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3712952662489506111, guid: 736cddf0c47e33e4c99918aec2134c59, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2712,7 +2724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3712952662489506111, guid: 736cddf0c47e33e4c99918aec2134c59, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3712952662489506111, guid: 736cddf0c47e33e4c99918aec2134c59, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2745,7 +2757,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2208896879741367225, guid: 736cddf0c47e33e4c99918aec2134c59, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 736cddf0c47e33e4c99918aec2134c59, type: 3}
 --- !u!1001 &8278234238103152569
 PrefabInstance:

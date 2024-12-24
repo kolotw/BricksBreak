@@ -100,5 +100,44 @@ public class 產生磚塊 : MonoBehaviour
         }
     }
 
+    public void levelBricks(int i, int j, string brix, int life)
+    {
+        Vector3 v3 = Vector3.zero;
+        v3.z = i;
+        v3.x = j-2;
+        //i,j 座標
+        //brix磚塊 ◢◣◥◤ ■ ⊕⊖❖◉
+        GameObject bb;
+        switch (brix)
+        {
+            case "■":
+                bb = Instantiate(磚塊[0], v3, Quaternion.identity);
+                bb.GetComponent<boxLife>().life = life;
+                break;
+            case "◢":
+                bb = Instantiate(磚塊[1], v3, Quaternion.identity);
+                bb.GetComponent<boxLife>().life = life;
+                break;
+            case "◣":
+                bb = Instantiate(磚塊[2], v3, Quaternion.identity);
+                bb.GetComponent<boxLife>().life = life;
+                break;
+            case "◤":
+                bb = Instantiate(磚塊[3], v3, Quaternion.identity);
+                bb.GetComponent<boxLife>().life = life;
+                break;
+            case "◥":
+                bb = Instantiate(磚塊[4], v3, Quaternion.identity);
+                bb.GetComponent<boxLife>().life = life;
+                break;
+            case "◉":
+                bb = Instantiate(磚塊[5], v3, Quaternion.identity);
+                bb.GetComponent<boxLife>().life = life;
+                break;
+            default:
+                break;
+        }
+        
+    }
 
 }
