@@ -152,14 +152,13 @@ public class processCSV : MonoBehaviour
                         {
                             //allValue[i, j] 磚塊ID
                             brickID = allValue[i, j];
-                            print(brickID);
                         }
                         else
                         {
                             //allValue[i, j] 生命
                             brickLife = int.Parse(allValue[i, j]);
-                            GetComponent<產生磚塊>().levelBricks(i, j - 2, brickID, brickLife);
-                            print(brickLife);
+                            int newi = (i/2) + 1;
+                            GetComponent<產生磚塊>().levelBricks(i, j, brickID, brickLife);                            
                         }
                     }
                 }

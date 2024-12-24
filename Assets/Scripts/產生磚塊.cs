@@ -32,7 +32,7 @@ public class 產生磚塊 : MonoBehaviour
         if(磚塊總數 == 0)
         {
             //WIN
-            GameObject.Find("/00GameMaster").GetComponent<gameMaster>().isWon = true;
+            //GameObject.Find("/00GameMaster").GetComponent<gameMaster>().isWon = true;
         }
     }
 
@@ -103,8 +103,9 @@ public class 產生磚塊 : MonoBehaviour
     public void levelBricks(int i, int j, string brix, int life)
     {
         Vector3 v3 = Vector3.zero;
+        v3.x = (j/2)+1; 
         v3.z = i;
-        v3.x = j-2;
+        
         //i,j 座標
         //brix磚塊 ◢◣◥◤ ■ ⊕⊖❖◉
         GameObject bb;
@@ -117,18 +118,22 @@ public class 產生磚塊 : MonoBehaviour
             case "◢":
                 bb = Instantiate(磚塊[1], v3, Quaternion.identity);
                 bb.GetComponent<boxLife>().life = life;
+                bb.transform.eulerAngles = new Vector3(-90, 0, 90);
                 break;
             case "◣":
                 bb = Instantiate(磚塊[2], v3, Quaternion.identity);
                 bb.GetComponent<boxLife>().life = life;
+                bb.transform.eulerAngles = new Vector3(-90, 180, 0);
                 break;
             case "◤":
                 bb = Instantiate(磚塊[3], v3, Quaternion.identity);
                 bb.GetComponent<boxLife>().life = life;
+                bb.transform.eulerAngles = new Vector3(-90, 0, -90);
                 break;
             case "◥":
                 bb = Instantiate(磚塊[4], v3, Quaternion.identity);
                 bb.GetComponent<boxLife>().life = life;
+                bb.transform.eulerAngles = new Vector3(-90, 0, 0);
                 break;
             case "◉":
                 bb = Instantiate(磚塊[5], v3, Quaternion.identity);
