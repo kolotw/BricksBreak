@@ -39,11 +39,14 @@ public class 產生磚塊 : MonoBehaviour
     public void genBricks()
     {
         bool 要產生磚塊 = false;
+        bPos.z = GetComponent<processCSV>().GetLineCount("/Level/lv01.csv");
+
         for (int i = 1; i < 9; i++) 
         {
             bPos.x = i;
             bPos.y = 0;
-            bPos.z = 12;
+
+            //bPos.z = 12;
             int shape = Random.Range(1, 99);
             if (shape % 12 == 0)
             {

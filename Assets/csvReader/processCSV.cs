@@ -167,6 +167,21 @@ public class processCSV : MonoBehaviour
         catch { }
         //print(allValue[1,4]);
     }
+    public int GetLineCount(string filePath)
+    {
+        // 檢查檔案是否存在
+        if (File.Exists(filePath))
+        {
+            // 讀取所有行並回傳行數
+            string[] lines = File.ReadAllLines(filePath);
+            return lines.Length;
+        }
+        else
+        {
+            Debug.LogError("檔案不存在: " + filePath);
+            return 0;
+        }
+    }
     public void reWriteCSV(int cmdID, string cmdC)
     {
         /*
