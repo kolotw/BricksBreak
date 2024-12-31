@@ -32,7 +32,7 @@ public class 產生磚塊 : MonoBehaviour
         if(磚塊總數 == 0)
         {
             //WIN
-            //GameObject.Find("/00GameMaster").GetComponent<gameMaster>().isWon = true;
+            GetComponent<gameMaster>().isWon = true;
         }
     }
 
