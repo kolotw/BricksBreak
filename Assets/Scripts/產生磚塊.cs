@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -26,7 +26,7 @@ public class 產生磚塊 : MonoBehaviour
     void Update()
     {
         tx.text = "Ball Number: " + GameObject.Find("/發射器").GetComponent<發射器>().球數;
-        rounds.text = "計算次數: " + 第幾回合.ToString();
+        rounds.text = "ROUND: " + 第幾回合.ToString();
         //偵測勝敗
         磚塊總數 = GameObject.FindGameObjectsWithTag("BRICKS").Length;
         if(磚塊總數 == 0)
@@ -108,7 +108,7 @@ public class 產生磚塊 : MonoBehaviour
         Vector3 v3 = Vector3.zero;
         v3.x = (j/2)+1; 
         v3.z = i;
-        
+        //bPos.z = GetComponent<processCSV>().GetLineCount("/Level/lv01.csv");
         //i,j 座標
         //brix磚塊 ◢◣◥◤ ■ ⊕⊖❖◉
         GameObject bb;
@@ -138,10 +138,23 @@ public class 產生磚塊 : MonoBehaviour
                 bb.GetComponent<boxLife>().life = life;
                 bb.transform.eulerAngles = new Vector3(-90, 0, 0);
                 break;
-            case "◉":
+            case "O":
                 bb = Instantiate(磚塊[5], v3, Quaternion.identity);
                 bb.GetComponent<boxLife>().life = life;
                 break;
+            case "Y":
+                bb = Instantiate(磚塊[6], v3, Quaternion.identity);
+                bb.GetComponent<boxLife>().life = life;
+                break;
+            case "M":
+                bb = Instantiate(磚塊[7], v3, Quaternion.identity);
+                bb.GetComponent<boxLife>().life = life;
+                break;
+            case "P":
+                bb = Instantiate(磚塊[8], v3, Quaternion.identity);
+                bb.GetComponent<boxLife>().life = life;
+                break;
+
             default:
                 break;
         }

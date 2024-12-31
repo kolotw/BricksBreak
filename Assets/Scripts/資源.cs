@@ -10,15 +10,15 @@ public class 資源 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(this.name == "-")
+        if(this.name == "-(Clone)")
         {
             this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
         }
-        else if (this.name == "+")
+        else if (this.name == "+(Clone)")
         {
             this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
         }
-        else if (this.name == "Spread")
+        else if (this.name == "Spread(Clone)")
         {
             this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
         }
@@ -29,13 +29,13 @@ public class 資源 : MonoBehaviour
     {
         if (other.tag == "BALL") 
         {
-            if(this.transform.name=="-")
+            if(this.transform.name== "-(Clone)")
             {
                 GameObject go = Instantiate(橫向刪除, this.transform.position, Quaternion.identity);
                 Destroy(go, 0.05f);
                 最後要刪除 = true;
             }
-            else if (this.transform.name == "+")
+            else if (this.transform.name == "+(Clone)")
             {
                 GameObject go = Instantiate(橫向刪除, this.transform.position, Quaternion.identity);
                 GameObject ga = Instantiate(縱向刪除, this.transform.position, Quaternion.identity);
@@ -43,7 +43,7 @@ public class 資源 : MonoBehaviour
                 Destroy(ga, 0.05f);
                 最後要刪除 = true;
             }
-            else if (this.transform.name == "Spread")
+            else if (this.transform.name == "Spread(Clone)")
             {
                 // 分散方向
                 int 角度 = Random.Range(0, 359);

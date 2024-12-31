@@ -28,6 +28,8 @@ public class processCSV : MonoBehaviour
         //DontDestroyOnLoad(this);
         countAllValue("/Level/lv01.csv");
         getAllValue("/Level/lv01.csv");
+        valueLimit = GetLineCount("/Level/lv01.csv");
+        //print(valueLimit);
     }
 
     public string getTRN(string matchVal, int col)
@@ -137,6 +139,7 @@ public class processCSV : MonoBehaviour
         //print(valueLimit);
         string brickID = "";
         int brickLife = 0;
+
         try
         {
             for (int i = 1; i < valueLimit; i++)
@@ -164,11 +167,15 @@ public class processCSV : MonoBehaviour
                 }
             }
         }
-        catch { }
+        catch 
+        {
+            print("Wrong? ");
+        }
         //print(allValue[1,4]);
     }
     public int GetLineCount(string filePath)
     {
+        filePath = Application.dataPath + filePath;
         // 檢查檔案是否存在
         if (File.Exists(filePath))
         {
