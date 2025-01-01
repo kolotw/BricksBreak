@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System.IO;
 using System.Text;
 using System.Xml;
+using Unity.VisualScripting;
 
 
 public class processCSV : MonoBehaviour
@@ -26,12 +27,16 @@ public class processCSV : MonoBehaviour
     void Start()
     {
         //DontDestroyOnLoad(this);
-        countAllValue("/Level/lv01.csv");
-        getAllValue("/Level/lv01.csv");
-        valueLimit = GetLineCount("/Level/lv01.csv");
-        //print(valueLimit);
+        //getLevel(1);
     }
-
+    public void getLevel(int level)
+    {
+        //int level = GetComponent<gameMaster>().Level;
+        string levelName = "/Level/lv" + string.Format("{0:D2}", level) + ".csv";
+        countAllValue(levelName);
+        getAllValue(levelName);
+        valueLimit = GetLineCount(levelName);
+    }
     public string getTRN(string matchVal, int col)
     {
         //查詢指令的名字，要return外語名字 col ... cmdC=3, cmdE=4, cmdI=5
@@ -148,7 +153,7 @@ public class processCSV : MonoBehaviour
                 for (int j = 0; j < 18; j++)
                 {
                     allValue[i, j] = eyeCmd.getRowByID(myFN, i)[j];
-                    Debug.Log(i + "," + j + ":" + allValue[i, j]);
+                    //Debug.Log(i + "," + j + ":" + allValue[i, j]);
                     if (allValue[i, j] != string.Empty)
                     {
                         if (j % 2 == 0)
@@ -169,9 +174,8 @@ public class processCSV : MonoBehaviour
         }
         catch 
         {
-            print("Wrong? ");
+            //print("Wrong? ");
         }
-        //print(allValue[1,4]);
     }
     public int GetLineCount(string filePath)
     {

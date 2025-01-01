@@ -21,11 +21,10 @@ public class 發射器 : MonoBehaviour
     public float 球尺寸 = 0.25f;
     public float 逾時 = 5f;
 
-    bool canShoot = false;
     public bool 正在發射中 = false;
     bool isDown = false;
 
-    public 產生磚塊 gm;
+    public gameMaster gm;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +37,6 @@ public class 發射器 : MonoBehaviour
     {
         if(GameObject.FindGameObjectsWithTag("BALL").Length == 0)
         {
-            canShoot = true;
             正在發射中 = false;
             
             
@@ -50,18 +48,19 @@ public class 發射器 : MonoBehaviour
                 isDown = false;
             }
         }
-        else { canShoot = false; }
+        else {  }
 
-        if (!正在發射中) 
+        if (!正在發射中 && !gm.isWon) 
         {
             CameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Input.GetMouseButton(0)) 
             {
+                GameObject.Find("00GameMaster").GetComponent<gameMaster>().isPlaying = true;
                 line.GetComponent<LineRenderer>().enabled = true;
-                if (Physics.Raycast(CameraRay, out hit, 15f, layerMask))  //從Camera出發，取得 滑鼠 / 手指 觸碰的位置
+                if (Physics.Raycast(CameraRay, out hit, 35f, layerMask))  //從Camera出發，取得 滑鼠 / 手指 觸碰的位置
                 {
                     turretRay = new Ray(transform.position, transform.forward);
-                    if(Physics.Raycast(turretRay, out hitWall, 15f, layerMask)) //從炮台出發，取得 碰到 牆 的位置 
+                    if(Physics.Raycast(turretRay, out hitWall, 35f, layerMask)) //從炮台出發，取得 碰到 牆 的位置 
                     {
                         方向 = hitWall.point - 發射點.transform.position;
                         Debug.DrawRay(發射點.transform.position, 方向, Color.red);

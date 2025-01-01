@@ -7,34 +7,11 @@ public class 產生磚塊 : MonoBehaviour
 {
     public GameObject[] 磚塊;
     int bID = 0;
-    int bLife = 10;
     public TextMeshPro tx;
     public TextMeshPro rounds;
     public int ballNum = 10;
     Vector3 bPos = Vector3.zero;
-
-    public int 第幾回合 = 0;
-    GameObject[] 現場磚塊;
-    int 磚塊總數 = 0;  
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        tx.text = "Ball Number: " + GameObject.Find("/發射器").GetComponent<發射器>().球數;
-        rounds.text = "ROUND: " + 第幾回合.ToString();
-        //偵測勝敗
-        磚塊總數 = GameObject.FindGameObjectsWithTag("BRICKS").Length;
-        if(磚塊總數 == 0)
-        {
-            //WIN
-            GetComponent<gameMaster>().isWon = true;
-        }
-    }
 
     public void genBricks()
     {
@@ -110,7 +87,7 @@ public class 產生磚塊 : MonoBehaviour
         v3.z = i;
         //bPos.z = GetComponent<processCSV>().GetLineCount("/Level/lv01.csv");
         //i,j 座標
-        //brix磚塊 ◢◣◥◤ ■ ⊕⊖❖◉
+        //brix磚塊 ◢◣◥◤ ■ ❖ ㊉㊀●
         GameObject bb;
         switch (brix)
         {
@@ -138,21 +115,17 @@ public class 產生磚塊 : MonoBehaviour
                 bb.GetComponent<boxLife>().life = life;
                 bb.transform.eulerAngles = new Vector3(-90, 0, 0);
                 break;
-            case "O":
+            case "●":
                 bb = Instantiate(磚塊[5], v3, Quaternion.identity);
-                bb.GetComponent<boxLife>().life = life;
                 break;
-            case "Y":
+            case "❖":
                 bb = Instantiate(磚塊[6], v3, Quaternion.identity);
-                bb.GetComponent<boxLife>().life = life;
                 break;
-            case "M":
+            case "一":
                 bb = Instantiate(磚塊[7], v3, Quaternion.identity);
-                bb.GetComponent<boxLife>().life = life;
                 break;
-            case "P":
+            case "十":
                 bb = Instantiate(磚塊[8], v3, Quaternion.identity);
-                bb.GetComponent<boxLife>().life = life;
                 break;
 
             default:

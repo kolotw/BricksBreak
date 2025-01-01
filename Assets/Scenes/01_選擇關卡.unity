@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 134956298}
   - component: {fileID: 134956297}
   m_Layer: 5
-  m_Name: LV3
+  m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -403,7 +403,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1018108395}
         m_TargetAssemblyTypeName: "\u6309\u9215, Assembly-CSharp"
-        m_MethodName: LV3
+        m_MethodName: LVSelector
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -850,7 +850,7 @@ GameObject:
   - component: {fileID: 306163511}
   - component: {fileID: 306163510}
   m_Layer: 5
-  m_Name: LV2
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -922,7 +922,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1018108395}
         m_TargetAssemblyTypeName: "\u6309\u9215, Assembly-CSharp"
-        m_MethodName: LV2
+        m_MethodName: LVSelector
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2366,6 +2366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4331423f5cc8f494199e13c55cba802b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLevel: 0
 --- !u!1 &1027621749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2379,7 +2380,7 @@ GameObject:
   - component: {fileID: 1027621752}
   - component: {fileID: 1027621751}
   m_Layer: 5
-  m_Name: LV6
+  m_Name: 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2451,7 +2452,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1018108395}
         m_TargetAssemblyTypeName: "\u6309\u9215, Assembly-CSharp"
-        m_MethodName: LV6
+        m_MethodName: LVSelector
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2817,7 +2818,7 @@ GameObject:
   - component: {fileID: 1258696071}
   - component: {fileID: 1258696070}
   m_Layer: 5
-  m_Name: LV7
+  m_Name: 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2889,7 +2890,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1018108395}
         m_TargetAssemblyTypeName: "\u6309\u9215, Assembly-CSharp"
-        m_MethodName: LV7
+        m_MethodName: LVSelector
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3253,7 +3254,7 @@ GameObject:
   - component: {fileID: 1393169251}
   - component: {fileID: 1393169250}
   m_Layer: 5
-  m_Name: LV1
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3325,7 +3326,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1018108395}
         m_TargetAssemblyTypeName: "\u6309\u9215, Assembly-CSharp"
-        m_MethodName: LV1
+        m_MethodName: LVSelector
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3517,7 +3518,6 @@ MonoBehaviour:
   tx: {fileID: 1140628770}
   rounds: {fileID: 891645961}
   ballNum: 10
-  "\u7B2C\u5E7E\u56DE\u5408": 0
 --- !u!4 &1485599641
 Transform:
   m_ObjectHideFlags: 0
@@ -3651,7 +3651,7 @@ GameObject:
   - component: {fileID: 1546705197}
   - component: {fileID: 1546705196}
   m_Layer: 5
-  m_Name: LV5
+  m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3723,7 +3723,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1018108395}
         m_TargetAssemblyTypeName: "\u6309\u9215, Assembly-CSharp"
-        m_MethodName: LV5
+        m_MethodName: LVSelector
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4129,7 +4129,7 @@ GameObject:
   - component: {fileID: 1681753127}
   - component: {fileID: 1681753126}
   m_Layer: 5
-  m_Name: LV8
+  m_Name: 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4201,7 +4201,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1018108395}
         m_TargetAssemblyTypeName: "\u6309\u9215, Assembly-CSharp"
-        m_MethodName: LV8
+        m_MethodName: LVSelector
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4680,7 +4680,7 @@ GameObject:
   - component: {fileID: 1912094910}
   - component: {fileID: 1912094909}
   m_Layer: 5
-  m_Name: LV4
+  m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4752,7 +4752,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1018108395}
         m_TargetAssemblyTypeName: "\u6309\u9215, Assembly-CSharp"
-        m_MethodName: LV4
+        m_MethodName: LVSelector
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4813,7 +4813,7 @@ GameObject:
   - component: {fileID: 1957097010}
   - component: {fileID: 1957097009}
   m_Layer: 5
-  m_Name: LV9
+  m_Name: 9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4885,7 +4885,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1018108395}
         m_TargetAssemblyTypeName: "\u6309\u9215, Assembly-CSharp"
-        m_MethodName: LV9
+        m_MethodName: LVSelector
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
