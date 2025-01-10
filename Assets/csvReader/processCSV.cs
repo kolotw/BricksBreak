@@ -20,7 +20,7 @@ public class processCSV : MonoBehaviour
 	 * 好像用二維陣列比較好，這樣也才知道它的序號
 	 * 
 	*/
-    private string[,] allValue;
+    public string[,] allValue;
     //private string[] sortArray= new string[]{}; //供指令排序使用
 
     private string parentName = "";
