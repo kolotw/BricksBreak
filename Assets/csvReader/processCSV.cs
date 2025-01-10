@@ -237,7 +237,7 @@ public class processCSV : MonoBehaviour
         {
             for (int j = 1; j < allValue.GetLength(1); j++)
             {
-                Debug.Log($"Value at [{i}, {j}]: {allValue[i, j]}" +  " = " + allValue[i,j]);
+                //Debug.Log($"Value at [{i}, {j}]: {allValue[i, j]}" +  " = " + allValue[i,j]);
                 if (allValue[i, j].Length > 0)
                 {
                     if (j % 2 == 1)
@@ -257,6 +257,7 @@ public class processCSV : MonoBehaviour
             }            
         }
         allValue = null;
+        GameObject.Find("/00GameMaster").GetComponent<gameMaster>().isPlaying = true;
     }
     void getAllValue(string myFN)
     { 

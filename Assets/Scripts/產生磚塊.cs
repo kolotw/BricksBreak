@@ -87,7 +87,7 @@ public class 產生磚塊 : MonoBehaviour
         v3.z = i;
         //bPos.z = GetComponent<processCSV>().GetLineCount("/Level/lv01.csv");
         //i,j 座標
-        //brix磚塊 ◢◣◥◤ ■ ❖ ㊉㊀●
+        //brix磚塊 ◢◣◥◤ ■ ❖ 十一●
         GameObject bb;
         switch (brix)
         {

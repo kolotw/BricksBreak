@@ -55,7 +55,7 @@ public class 發射器 : MonoBehaviour
             CameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Input.GetMouseButton(0)) 
             {
-                GameObject.Find("00GameMaster").GetComponent<gameMaster>().isPlaying = true;
+                //GameObject.Find("00GameMaster").GetComponent<gameMaster>().isPlaying = true;
                 line.GetComponent<LineRenderer>().enabled = true;
                 if (Physics.Raycast(CameraRay, out hit, 35f, layerMask))  //從Camera出發，取得 滑鼠 / 手指 觸碰的位置
                 {

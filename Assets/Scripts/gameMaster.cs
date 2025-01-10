@@ -31,7 +31,12 @@ public class gameMaster : MonoBehaviour
     }
     void getGamePlay()
     {
-        //Level = GameObject.Find("/按鈕功能").GetComponent<按鈕>().currentLevel;
+        Level = currentLevel._CurrentLevel;
+        if (Level > 9) 
+        {  
+            Level = 1;
+            currentLevel._CurrentLevel = 1;
+        }
         GameObject.Find("00GameMaster").GetComponent<processCSV>().getLevel(Level);
         rounds.text = "LEVEL: " + Level.ToString();
         tx.text = "Ball: " + GameObject.Find("/發射器").GetComponent<發射器>().球數;
