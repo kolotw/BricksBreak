@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using ProtoBuf;
 using System.IO;
 using System;
+using UnityEngine.Networking;
 
 
 
@@ -188,8 +189,73 @@ public class cmgw
 		return null;
 	}
 
+    public IEnumerator GetRowByIDWeb(string fName, int id, Action<string[]> callback)
+    {
+        if (string.IsNullOrEmpty(fName))
+        {
+            callback?.Invoke(null);
+            yield break;
+        }
 
-	public Dictionary<int, string> getColumnByHeader(string fName, string header)  //not incl header
+        string path = Path.Combine(Application.streamingAssetsPath, fName);
+
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
+        {
+            // 使用 UnityWebRequest 加載文件
+            UnityWebRequest request = UnityWebRequest.Get(path);
+            yield return request.SendWebRequest();
+
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                string[] rows = request.downloadHandler.text.Split('\n');
+                foreach (string row in rows)
+                {
+                    List<string> list = new List<string>(row.Split(','));
+                    if (list.Count > 0 && list[0] == id.ToString())
+                    {
+                        list.RemoveAt(0); // 移除 ID
+                        callback?.Invoke(list.ToArray());
+                        yield break;
+                    }
+                }
+            }
+            else
+            {
+                Debug.LogError("Failed to load CSV: " + request.error);
+                callback?.Invoke(null);
+            }
+        }
+        else
+        {
+            // 直接讀取文件（非 Web 平台）
+            try
+            {
+                using (StreamReader sr = new StreamReader(path))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        List<string> list = new List<string>(line.Split(','));
+                        if (list.Count > 0 && list[0] == id.ToString())
+                        {
+                            list.RemoveAt(0); // 移除 ID
+                            callback?.Invoke(list.ToArray());
+                            yield break;
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("CSV Parsing Error: " + e.Message);
+                callback?.Invoke(null);
+            }
+        }
+
+        // 如果未找到，返回 null
+        callback?.Invoke(null);
+    }
+    public Dictionary<int, string> getColumnByHeader(string fName, string header)  //not incl header
 	{
 		Dictionary<int, string[]> tmp = new Dictionary<int, string[]>();
 
