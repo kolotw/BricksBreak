@@ -170,10 +170,12 @@ public class processCSV : MonoBehaviour
     public IEnumerator LoadAllValues(string fileName, Action callback)
     {
         string filePath = Application.streamingAssetsPath + fileName;
-        GameObject.Find("/Canvas/filepath").GetComponent<Text>().text = filePath;
+        
         if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
             // WebGL 平台使用 UnityWebRequest
+            filePath = Path.Combine(Application.streamingAssetsPath, fileName);
+            GameObject.Find("/Canvas/filepath").GetComponent<Text>().text = filePath;
             UnityWebRequest request = UnityWebRequest.Get(filePath);
             yield return request.SendWebRequest();
 
