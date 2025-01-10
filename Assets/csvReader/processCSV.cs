@@ -32,7 +32,7 @@ public class processCSV : MonoBehaviour
     public void getLevel(int level)
     {
         //int level = GetComponent<gameMaster>().Level;
-        string levelName = "/Level/lv" + string.Format("{0:D2}", level) + ".csv";
+        string levelName = "/StreamingAssets/lv" + string.Format("{0:D2}", level) + ".csv";
         countAllValue(levelName);
         getAllValue(levelName);
         valueLimit = GetLineCount(levelName);

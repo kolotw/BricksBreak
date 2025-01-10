@@ -652,7 +652,7 @@ GameObject:
   - component: {fileID: 421373264}
   - component: {fileID: 421373266}
   - component: {fileID: 421373265}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -667,15 +667,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 421373263}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: -49}
+  m_LocalScale: {x: 0.29, y: 0.29, z: 0.29}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1419800596}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11, y: 55}
+  m_AnchoredPosition: {x: -11, y: -324}
   m_SizeDelta: {x: 1691.0153, y: 986.567}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &421373265
@@ -2826,7 +2826,7 @@ GameObject:
   - component: {fileID: 1980636190}
   - component: {fileID: 1980636189}
   m_Layer: 0
-  m_Name: ButtonActons
+  m_Name: "\u6309\u9215\u529F\u80FD"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2844,7 +2844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4331423f5cc8f494199e13c55cba802b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 0
+  currentLevel: 1
 --- !u!4 &1980636190
 Transform:
   m_ObjectHideFlags: 0

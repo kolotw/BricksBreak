@@ -10,7 +10,7 @@ public class 按鈕 : MonoBehaviour
     public int currentLevel = 0;
     private void Start()
     {
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this); 
     }
     public void 開始遊戲() {
         currentLevel = 1;
@@ -39,6 +39,7 @@ public class 按鈕 : MonoBehaviour
     }
     public void But_Next()
     {
+        //print("PRESS");
         currentLevel = GameObject.Find("00GameMaster").GetComponent<gameMaster>().Level++;
         GameObject.Find("00GameMaster").GetComponent<gameMaster>().Start();
         GameObject.Find("00GameMaster").GetComponent<processCSV>().getLevel(currentLevel);

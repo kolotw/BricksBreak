@@ -80,7 +80,7 @@ public class 發射器 : MonoBehaviour
                 transform.rotation = Quaternion.Slerp(transform.rotation, 旋轉, 20 * Time.deltaTime);
                 this.transform.eulerAngles = new Vector3(0f,this.transform.eulerAngles.y,0f);
             }
-            if (Input.GetMouseButtonUp(0))
+            else if (Input.GetMouseButtonUp(0))
             {
                 line.GetComponent<LineRenderer>().enabled = false;
                 正在發射中 = true;
