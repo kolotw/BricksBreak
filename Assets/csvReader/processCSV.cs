@@ -36,6 +36,7 @@ public class processCSV : MonoBehaviour
         countAllValue(levelName);
         getAllValue(levelName);
         valueLimit = GetLineCount(levelName);
+        GameObject.Find("/Canvas/filepath").GetComponent<Text>().text = Application.streamingAssetsPath + levelName;
     }
     public string getTRN(string matchVal, int col)
     {
