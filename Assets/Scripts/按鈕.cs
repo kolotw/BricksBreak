@@ -40,10 +40,10 @@ public class 按鈕 : MonoBehaviour
     public void But_Next()
     {
         //print("PRESS");
-        GameObject.Find("00GameMaster").GetComponent<processCSV>().allValue = null;
+        //GameObject.Find("00GameMaster").GetComponent<processCSV>().allValue = null;
         currentLevel = GameObject.Find("00GameMaster").GetComponent<gameMaster>().Level++;
         GameObject.Find("00GameMaster").GetComponent<gameMaster>().Start();
-        GameObject.Find("00GameMaster").GetComponent<processCSV>().getLevel(currentLevel);
+        //GameObject.Find("00GameMaster").GetComponent<processCSV>().getLevel(currentLevel);
     }
     public void But_Back()
     {

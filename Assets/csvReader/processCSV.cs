@@ -20,7 +20,7 @@ public class processCSV : MonoBehaviour
 	 * 好像用二維陣列比較好，這樣也才知道它的序號
 	 * 
 	*/
-    public string[,] allValue;
+    private string[,] allValue;
     //private string[] sortArray= new string[]{}; //供指令排序使用
 
     private string parentName = "";
@@ -232,7 +232,7 @@ public class processCSV : MonoBehaviour
         string brickID = string.Empty;
         int brickLife = 0;
         // 測試輸出
-        print(allValue.GetLength(0) + " " + allValue.GetLength(1));
+        //print(allValue.GetLength(0) + " " + allValue.GetLength(1));
         for (int i = allValue.GetLength(0)-1; i > 0; i--)
         {
             for (int j = 1; j < allValue.GetLength(1); j++)
@@ -254,8 +254,9 @@ public class processCSV : MonoBehaviour
                         GetComponent<產生磚塊>().levelBricks(ii, j-1, brickID, brickLife);
                     }
                 }
-            }
-        }      
+            }            
+        }
+        allValue = null;
     }
     void getAllValue(string myFN)
     { 
