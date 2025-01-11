@@ -35,7 +35,7 @@ public class 發射器 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!gm.isPlaying)
+        if (!GameObject.Find("00GameMaster").GetComponent<gameMaster>().isPlaying)
         {
             isDown = false;
             StopCoroutine(發射序列());
