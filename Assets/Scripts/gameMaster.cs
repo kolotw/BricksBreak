@@ -65,6 +65,7 @@ public class gameMaster : MonoBehaviour
 
         if (isWon)
         {
+            Shooter.SetActive(false);
             ³Ó±Ñ¤å¦r.text = "WIN";
             BUT_NEXT.gameObject.SetActive(true);
             BUT_BACK.gameObject.SetActive(true);
