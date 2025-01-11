@@ -35,11 +35,10 @@ public class 發射器 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         if (!gm.isPlaying)
         {
             isDown = false;
+            StopCoroutine(發射序列());
             return;
         }
 

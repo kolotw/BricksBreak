@@ -2205,6 +2205,7 @@ MonoBehaviour:
   rounds: {fileID: 891645961}
   "\u7B2C\u5E7E\u56DE\u5408": 0
   isPlaying: 0
+  Shooter: {fileID: 864648560831187100}
 --- !u!1 &1512077428
 GameObject:
   m_ObjectHideFlags: 0
@@ -3232,6 +3233,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c1ad1679d9d5374394847a6907da145, type: 3}
+--- !u!1 &864648560831187100 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 819719516218730936, guid: 7c1ad1679d9d5374394847a6907da145, type: 3}
+  m_PrefabInstance: {fileID: 864648560831187099}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1792024503984925160
 PrefabInstance:
   m_ObjectHideFlags: 0

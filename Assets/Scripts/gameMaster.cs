@@ -17,9 +17,11 @@ public class gameMaster : MonoBehaviour
     public int 第幾回合 = 0;
     int 磚塊總數 = 0;
     public bool isPlaying = false;
+    public GameObject Shooter;
     // Start is called before the first frame update
     public void Start()
     {
+        Shooter.SetActive(false);
         isPlaying = false ;
         isWon = false;
         isLost = false;
@@ -27,7 +29,7 @@ public class gameMaster : MonoBehaviour
         BUT_NEXT.gameObject.SetActive(false);
         BUT_BACK.gameObject.SetActive(false);
         StartCoroutine(setIsPlaying());
-        getGamePlay();
+        
     }
     void getGamePlay()
     {
@@ -87,6 +89,8 @@ public class gameMaster : MonoBehaviour
     IEnumerator setIsPlaying()
     {
         yield return new WaitForSeconds(1f);
-        isPlaying = true;        
+        Shooter.SetActive(true);
+        isPlaying = true;
+        getGamePlay();
     }
 }
