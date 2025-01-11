@@ -1,9 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class gameMaster : MonoBehaviour
 {
@@ -20,24 +19,35 @@ public class gameMaster : MonoBehaviour
     public bool isPlaying = false;
     public GameObject Shooter;
     public bool levelHasLoadCompleted = false;
-    // Start is called before the first frame update
-    public void Start()
+
+    private void Start()
     {
         Shooter.SetActive(false);
-        isPlaying = false ;
+        isPlaying = false;
         isWon = false;
         isLost = false;
         勝敗文字.text = "";
         BUT_NEXT.gameObject.SetActive(false);
         BUT_BACK.gameObject.SetActive(false);
-        StartCoroutine(setIsPlaying());
-        
+
+        // 訂閱事件
+        processCSV.OnBricksGenerated += HandleBricksGenerated;
+
+        // 開始載入關卡
+        getGamePlay();
     }
-    void getGamePlay()
+
+    private void OnDestroy()
+    {
+        // 取消訂閱事件
+        processCSV.OnBricksGenerated -= HandleBricksGenerated;
+    }
+
+    private void getGamePlay()
     {
         Level = currentLevel._CurrentLevel;
-        if (Level > 9) 
-        {  
+        if (Level > 9)
+        {
             Level = 1;
             currentLevel._CurrentLevel = 1;
         }
@@ -46,37 +56,55 @@ public class gameMaster : MonoBehaviour
         tx.text = "Ball: " + currentLevel.balls;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void HandleBricksGenerated()
     {
-        if (Input.GetKeyUp(KeyCode.Escape)) {
+        // 磚塊生成完成後，啟動遊戲
+        Debug.Log("Bricks generated! Starting gameplay...");
+        StartCoroutine(setIsPlaying());
+    }
+
+    private IEnumerator setIsPlaying()
+    {
+        yield return new WaitForSeconds(1f);
+        Shooter.SetActive(true);
+        isPlaying = true;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
             SceneManager.LoadScene("01_選擇關卡");
         }
-        if (!levelHasLoadCompleted) {
+
+        if (!levelHasLoadCompleted)
+        {
             isPlaying = false;
-            return; 
+            return;
         }
+
         if (isPlaying)
         {
             tx.text = "Ball: " + currentLevel.balls;
             rounds.text = "LEVEL: " + Level.ToString();
-            //偵測勝敗
+
+            // 偵測勝敗
             GameObject[] bb = GameObject.FindGameObjectsWithTag("BRICKS");
             磚塊總數 = bb.Length;
-            foreach(GameObject b2 in bb)
+            foreach (GameObject b2 in bb)
             {
                 if (b2.name == "AddBall(Clone)") 磚塊總數--;
                 if (b2.name == "Spread(Clone)") 磚塊總數--;
                 if (b2.name == "-(Clone)") 磚塊總數--;
                 if (b2.name == "+(Clone)") 磚塊總數--;
             }
+
             if (磚塊總數 == 0)
             {
-                //WIN
-                GetComponent<gameMaster>().isWon = true;
+                // WIN
+                isWon = true;
             }
         }
-        
 
         if (isWon)
         {
@@ -84,9 +112,8 @@ public class gameMaster : MonoBehaviour
             勝敗文字.text = "WIN";
             BUT_NEXT.gameObject.SetActive(true);
             BUT_BACK.gameObject.SetActive(true);
-            isPlaying = false ;
+            isPlaying = false;
 
-            //正在發射中 = false;
             GameObject[] bb = GameObject.FindGameObjectsWithTag("BALL");
             foreach (GameObject bb2 in bb)
             {
@@ -95,20 +122,13 @@ public class gameMaster : MonoBehaviour
 
             return;
         }
-        if (isLost) 
+
+        if (isLost)
         {
             勝敗文字.text = "LOSE";
-            //BUT_NEXT.gameObject.SetActive(true);
             BUT_BACK.gameObject.SetActive(true);
             isPlaying = false;
             return;
         }
-    }
-    IEnumerator setIsPlaying()
-    {
-        yield return new WaitForSeconds(1f);
-        Shooter.SetActive(true);
-        isPlaying = true;
-        getGamePlay();
     }
 }
