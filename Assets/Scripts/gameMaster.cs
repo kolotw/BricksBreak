@@ -18,6 +18,7 @@ public class gameMaster : MonoBehaviour
     int 磚塊總數 = 0;
     public bool isPlaying = false;
     public GameObject Shooter;
+    public bool levelHasLoadCompleted = false;
     // Start is called before the first frame update
     public void Start()
     {
@@ -47,6 +48,7 @@ public class gameMaster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!levelHasLoadCompleted) return;
         if ((isPlaying))
         {
             tx.text = "Ball: " + GameObject.Find("/發射器").GetComponent<發射器>().球數;

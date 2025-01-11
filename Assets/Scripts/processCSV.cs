@@ -9,6 +9,7 @@ public class processCSV : MonoBehaviour
     private string[,] allValue;
     public void getLevel(int level)
     {
+        GameObject.Find("00GameMaster").GetComponent<gameMaster>().levelHasLoadCompleted=false;
         string levelName = "/lv" + string.Format("{0:D2}", level) + ".csv";        
         StartCoroutine(InitializeValues(levelName));        
     }
@@ -125,6 +126,7 @@ public class processCSV : MonoBehaviour
             }            
         }
         allValue = null;
+        GameObject.Find("00GameMaster").GetComponent<gameMaster>().levelHasLoadCompleted = true;
         //GameObject.Find("/00GameMaster").GetComponent<gameMaster>().isPlaying = true;
     }
 }
