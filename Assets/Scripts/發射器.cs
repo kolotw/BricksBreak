@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class 發射器 : MonoBehaviour
 {
@@ -37,6 +38,7 @@ public class 發射器 : MonoBehaviour
     {
         if (!GameObject.Find("00GameMaster").GetComponent<gameMaster>().isPlaying)
         {
+            GameObject.Find("/Canvas/filepath").GetComponent<Text>().text = "notPlaying";
             isDown = false;
             StopCoroutine(發射序列());
             return;
