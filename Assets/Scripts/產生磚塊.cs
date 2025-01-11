@@ -15,8 +15,10 @@ public class 產生磚塊 : MonoBehaviour
 
     public void genBricks()
     {
+        //這是隨機產生磚塊
+
         bool 要產生磚塊 = false;
-        bPos.z = GetComponent<processCSV>().GetLineCount("/Level/lv01.csv");
+        //bPos.z = GetComponent<processCSV>().GetLineCount("/Level/lv01.csv");
 
         for (int i = 1; i < 9; i++) 
         {
@@ -82,6 +84,7 @@ public class 產生磚塊 : MonoBehaviour
 
     public void levelBricks(int i, int j, string brix, int life)
     {
+        //這是透過讀取csv產生磚塊
         Vector3 v3 = Vector3.zero;
         v3.x = (j/2)+1; 
         v3.z = i;

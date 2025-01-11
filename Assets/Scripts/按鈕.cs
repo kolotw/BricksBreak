@@ -45,9 +45,11 @@ public class 按鈕 : MonoBehaviour
         //GameObject.Find("按鈕功能選單").GetComponent<按鈕>().currentLevel++;
         currentLevel._CurrentLevel++;
         GameObject.Find("00GameMaster").GetComponent<gameMaster>().Start();
+        
     }
     public void But_Back()
     {
         SceneManager.LoadScene("01_選擇關卡");
     }
+    
 }

@@ -33,12 +33,19 @@ public class 發射器 : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if(GameObject.FindGameObjectsWithTag("BALL").Length == 0)
+
+
+        if (!gm.isPlaying)
         {
-            正在發射中 = false;
-            
+            isDown = false;
+            return;
+        }
+
+        if (GameObject.FindGameObjectsWithTag("BALL").Length == 0)
+        {
+            正在發射中 = false;            
             
             GameObject.Find("/牆/下").GetComponent<回收球>().移動發射器();
             if (isDown) //球已經發射完，而且全部磚塊要往下移
@@ -55,7 +62,6 @@ public class 發射器 : MonoBehaviour
             CameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Input.GetMouseButton(0)) 
             {
-                //GameObject.Find("00GameMaster").GetComponent<gameMaster>().isPlaying = true;
                 line.GetComponent<LineRenderer>().enabled = true;
                 if (Physics.Raycast(CameraRay, out hit, 35f, layerMask))  //從Camera出發，取得 滑鼠 / 手指 觸碰的位置
                 {

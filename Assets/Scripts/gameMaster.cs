@@ -26,7 +26,7 @@ public class gameMaster : MonoBehaviour
         勝敗文字.text = "";
         BUT_NEXT.gameObject.SetActive(false);
         BUT_BACK.gameObject.SetActive(false);
-
+        StartCoroutine(setIsPlaying());
         getGamePlay();
     }
     void getGamePlay()
@@ -65,6 +65,14 @@ public class gameMaster : MonoBehaviour
             BUT_NEXT.gameObject.SetActive(true);
             BUT_BACK.gameObject.SetActive(true);
             isPlaying = false ;
+
+            //正在發射中 = false;
+            GameObject[] bb = GameObject.FindGameObjectsWithTag("BALL");
+            foreach (GameObject bb2 in bb)
+            {
+                Destroy(bb2);
+            }
+
             return;
         }
         if (isLost) 
@@ -75,5 +83,10 @@ public class gameMaster : MonoBehaviour
             isPlaying = false;
             return;
         }
+    }
+    IEnumerator setIsPlaying()
+    {
+        yield return new WaitForSeconds(1f);
+        isPlaying = true;        
     }
 }
