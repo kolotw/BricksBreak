@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class gameMaster : MonoBehaviour
@@ -42,19 +43,33 @@ public class gameMaster : MonoBehaviour
         }
         GameObject.Find("00GameMaster").GetComponent<processCSV>().getLevel(Level);
         rounds.text = "LEVEL: " + Level.ToString();
-        tx.text = "Ball: " + GameObject.Find("/發射器").GetComponent<發射器>().球數;
+        tx.text = "Ball: " + currentLevel.balls;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!levelHasLoadCompleted) return;
-        if ((isPlaying))
+        if (Input.GetKeyUp(KeyCode.Escape)) {
+            SceneManager.LoadScene("01_選擇關卡");
+        }
+        if (!levelHasLoadCompleted) {
+            isPlaying = false;
+            return; 
+        }
+        if (isPlaying)
         {
-            tx.text = "Ball: " + GameObject.Find("/發射器").GetComponent<發射器>().球數;
+            tx.text = "Ball: " + currentLevel.balls;
             rounds.text = "LEVEL: " + Level.ToString();
             //偵測勝敗
-            磚塊總數 = GameObject.FindGameObjectsWithTag("BRICKS").Length;
+            GameObject[] bb = GameObject.FindGameObjectsWithTag("BRICKS");
+            磚塊總數 = bb.Length;
+            foreach(GameObject b2 in bb)
+            {
+                if (b2.name == "AddBall(Clone)") 磚塊總數--;
+                if (b2.name == "Spread(Clone)") 磚塊總數--;
+                if (b2.name == "-(Clone)") 磚塊總數--;
+                if (b2.name == "+(Clone)") 磚塊總數--;
+            }
             if (磚塊總數 == 0)
             {
                 //WIN

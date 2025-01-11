@@ -99,7 +99,7 @@ public class 發射器 : MonoBehaviour
     }
     IEnumerator 發射序列()
     {
-        for (int i = 0; i < 球數; i++)
+        for (int i = 0; i < currentLevel.balls; i++)
         {
             產生球();
             yield return new WaitForSeconds(間隔);

@@ -24,14 +24,10 @@ public class 按鈕 : MonoBehaviour
     }
     public void 返回() { SceneManager.LoadScene("00homepage"); }
     public void LVSelector(Button button) {
-        Debug.Log(button.name);
-
         if (button != null)
         {
-            //Debug.Log("按下的按鈕名稱是：" + selectedButton.name);
             SceneManager.LoadScene("LV01_基礎場景");
             currentLevel._CurrentLevel = int.Parse(button.name);
-            //GameObject.Find("00GameMaster").GetComponent<gameMaster>().Start();
         }
         else
         {
@@ -40,12 +36,14 @@ public class 按鈕 : MonoBehaviour
     }
     public void But_Next()
     {
-        //currentLevel++;
-        //currentLevel = GameObject.Find("00GameMaster").GetComponent<gameMaster>().Level++;
-        //GameObject.Find("按鈕功能選單").GetComponent<按鈕>().currentLevel++;
+        GameObject[] bb = GameObject.FindGameObjectsWithTag("BRICKS");
+        foreach (GameObject bb2 in bb) { 
+            Destroy(bb2);
+        }
         currentLevel._CurrentLevel++;
-        GameObject.Find("00GameMaster").GetComponent<gameMaster>().Start();
-        
+        //GameObject.Find("00GameMaster").GetComponent<gameMaster>().Start();
+        SceneManager.LoadScene("LV01_基礎場景");
+
     }
     public void But_Back()
     {

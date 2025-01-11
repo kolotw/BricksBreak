@@ -12,6 +12,7 @@ public class currentLevel : MonoBehaviour
     ³o¬O Singleton¼Ò¦¡¡C
      */
     public static int _CurrentLevel = 0;
+    public static int balls=30;
     public static currentLevel Instance { get; private set; }
     // Start is called before the first frame update
     void Start()

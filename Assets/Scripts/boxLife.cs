@@ -29,7 +29,8 @@ public class boxLife : MonoBehaviour
             {
                 if(this.transform.name == "AddBall(Clone)")
                 {
-                    GameObject.Find("/發射器").GetComponent<發射器>().球數++;
+                    //GameObject.Find("/發射器").GetComponent<發射器>().球數++;
+                    currentLevel.balls++;
                 }
                 Destroy(this.gameObject);
             }
@@ -48,7 +49,8 @@ public class boxLife : MonoBehaviour
                 {
 
                     {
-                        GameObject.Find("/發射器").GetComponent<發射器>().球數++;
+                        //GameObject.Find("/發射器").GetComponent<發射器>().球數++;
+                        currentLevel.balls++;
                     }
                     Destroy(this.gameObject);
                 }
