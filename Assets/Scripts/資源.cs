@@ -37,8 +37,10 @@ public class 資源 : MonoBehaviour
             }
             else if (this.transform.name == "+(Clone)")
             {
+                Vector3 nPos = this.transform.position;
+                nPos.z = 15;
                 GameObject go = Instantiate(橫向刪除, this.transform.position, Quaternion.identity);
-                GameObject ga = Instantiate(縱向刪除, this.transform.position, Quaternion.identity);
+                GameObject ga = Instantiate(縱向刪除, nPos, Quaternion.identity);
                 Destroy(go, 0.05f);
                 Destroy(ga, 0.05f);
                 最後要刪除 = true;

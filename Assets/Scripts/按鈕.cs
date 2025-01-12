@@ -26,8 +26,13 @@ public class 按鈕 : MonoBehaviour
     public void LVSelector(Button button) {
         if (button != null)
         {
-            SceneManager.LoadScene("LV01_基礎場景");
-            currentLevel._CurrentLevel = int.Parse(button.name);
+            if (button.name == "R") {
+                SceneManager.LoadScene("LV_Random");
+            } else {
+                SceneManager.LoadScene("LV01_基礎場景");
+                currentLevel._CurrentLevel = int.Parse(button.name);
+            }
+            
         }
         else
         {
@@ -41,9 +46,14 @@ public class 按鈕 : MonoBehaviour
             Destroy(bb2);
         }
         currentLevel._CurrentLevel++;
-        //GameObject.Find("00GameMaster").GetComponent<gameMaster>().Start();
-        SceneManager.LoadScene("LV01_基礎場景");
-
+        if (currentLevel._CurrentLevel > 9) 
+        {
+            SceneManager.LoadScene("Credit");
+        }
+        else
+        {
+            SceneManager.LoadScene("LV01_基礎場景");
+        }
     }
     public void But_Back()
     {

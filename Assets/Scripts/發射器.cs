@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class 發射器 : MonoBehaviour
@@ -140,6 +141,11 @@ public class 發射器 : MonoBehaviour
             }
             
         }
-        //GameObject.Find("/00GameMaster").GetComponent<產生磚塊>().genBricks();
+        if(SceneManager.GetActiveScene().name == "LV_Random")
+        {
+            if(gm.第幾回合 < 31)
+                GameObject.Find("/00GameMaster").GetComponent<產生磚塊>().genBricks();            
+        }
+
     }
 }

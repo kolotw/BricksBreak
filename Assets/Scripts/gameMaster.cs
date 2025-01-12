@@ -51,8 +51,19 @@ public class gameMaster : MonoBehaviour
             Level = 1;
             currentLevel._CurrentLevel = 1;
         }
-        GameObject.Find("00GameMaster").GetComponent<processCSV>().getLevel(Level);
-        rounds.text = "LEVEL: " + Level.ToString();
+        if(SceneManager.GetActiveScene().name == "LV01_基礎場景")
+        {
+            GameObject.Find("00GameMaster").GetComponent<processCSV>().getLevel(Level);
+            rounds.text = "LEVEL: " + Level.ToString();
+        }
+        if (SceneManager.GetActiveScene().name == "LV_Random")
+        {
+            GetComponent<產生磚塊>().genBricks();
+            Shooter.SetActive(true);
+            isPlaying = true;
+            rounds.text = "LEVEL: Random";
+        }
+        
         tx.text = "Ball: " + currentLevel.balls;
     }
 
@@ -76,18 +87,24 @@ public class gameMaster : MonoBehaviour
         {
             SceneManager.LoadScene("01_選擇關卡");
         }
-
-        if (!levelHasLoadCompleted)
+        if(SceneManager.GetActiveScene().name == "LV01_基礎場景")
         {
-            isPlaying = false;
-            return;
-        }
+            if (!levelHasLoadCompleted)
+            {
+                isPlaying = false;
+                return;
+            }
+        }        
 
         if (isPlaying)
         {
             tx.text = "Ball: " + currentLevel.balls;
-            rounds.text = "LEVEL: " + Level.ToString();
-
+            //rounds.text = "LEVEL: " + Level.ToString();
+            if (SceneManager.GetActiveScene().name == "LV_Random")
+            {
+                rounds.text = "Round: " + 第幾回合.ToString();
+                //if (第幾回合 > 30) isWon=true;
+            }
             // 偵測勝敗
             GameObject[] bb = GameObject.FindGameObjectsWithTag("BRICKS");
             磚塊總數 = bb.Length;

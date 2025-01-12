@@ -19,7 +19,7 @@ public class 產生磚塊 : MonoBehaviour
 
         bool 要產生磚塊 = false;
         //bPos.z = GetComponent<processCSV>().GetLineCount("/Level/lv01.csv");
-
+        bPos.z = 14;
         for (int i = 1; i < 9; i++) 
         {
             bPos.x = i;
@@ -41,8 +41,26 @@ public class 產生磚塊 : MonoBehaviour
             }
             else if (shape % 9 == 0)
             {
-                //資源
+                //資源 ●
                 bID = 5;
+                要產生磚塊 = true;
+            }
+            else if (shape % 57 == 0)
+            {
+                //資源 ❖
+                bID = 6;
+                要產生磚塊 = true;
+            }
+            else if (shape % 37 == 0)
+            {
+                //資源 一
+                bID = 7;
+                要產生磚塊 = true;
+            }
+            else if (shape % 49 == 0)
+            {
+                //資源 十
+                bID = 8;
                 要產生磚塊 = true;
             }
             else 
@@ -52,6 +70,7 @@ public class 產生磚塊 : MonoBehaviour
             }
             if (要產生磚塊)
             {
+                print(bID);
                 GameObject bb = Instantiate(磚塊[bID], bPos, Quaternion.identity);
                 switch(bb.transform.name)
                 {
@@ -72,6 +91,10 @@ public class 產生磚塊 : MonoBehaviour
                 if (bID == 5)
                 {
                     bb.GetComponent<boxLife>().life = 1;
+                }
+                else if (bID > 5)
+                {
+
                 }
                 else
                 {
