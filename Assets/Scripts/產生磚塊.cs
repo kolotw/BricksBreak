@@ -9,13 +9,15 @@ public class 產生磚塊 : MonoBehaviour
     int bID = 0;
     public TextMeshPro tx;
     public TextMeshPro rounds;
-    public int ballNum = 10;
+    //public int ballNum = 10;
     Vector3 bPos = Vector3.zero;
     // Start is called before the first frame update
 
     public void genBricks()
     {
         //這是隨機產生磚塊
+        int 最多 = 99 + currentLevel.balls + 10;
+        int 最少 = currentLevel.balls - 29;
 
         bool 要產生磚塊 = false;
         //bPos.z = GetComponent<processCSV>().GetLineCount("/Level/lv01.csv");
@@ -26,7 +28,7 @@ public class 產生磚塊 : MonoBehaviour
             bPos.y = 0;
 
             //bPos.z = 12;
-            int shape = Random.Range(1, 99);
+            int shape = Random.Range(最少, 最多);
             if (shape % 12 == 0)
             {
                 //三角形 ID: 1,2,3,4
