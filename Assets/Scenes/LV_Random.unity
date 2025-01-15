@@ -985,7 +985,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.04207176
+    widthMultiplier: 0.025
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -1003,9 +1003,9 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0.5585763, b: 0, a: 1}
-      key1: {r: 1, g: 0.5577397, b: 0, a: 1}
-      key2: {r: 1, g: 0.5568628, b: 0, a: 1}
+      key0: {r: 1, g: 0.5585763, b: 0, a: 0.5019608}
+      key1: {r: 1, g: 0.5577397, b: 0, a: 0.5019608}
+      key2: {r: 1, g: 0.5568628, b: 0, a: 0.5019608}
       key3: {r: 1, g: 0.5568628, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -2155,7 +2155,6 @@ MonoBehaviour:
   - {fileID: 1150753376239446113, guid: 1a80a6e40614f6543af39aa569c33abe, type: 3}
   tx: {fileID: 1140628770}
   rounds: {fileID: 891645961}
-  ballNum: 10
 --- !u!4 &1485599641
 Transform:
   m_ObjectHideFlags: 0
@@ -3189,6 +3188,14 @@ PrefabInstance:
       propertyPath: line
       value: 
       objectReference: {fileID: 733577609}
+    - target: {fileID: 1105787418658379680, guid: 7c1ad1679d9d5374394847a6907da145, type: 3}
+      propertyPath: "\u7403\u5C3A\u5BF8"
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1105787418658379680, guid: 7c1ad1679d9d5374394847a6907da145, type: 3}
+      propertyPath: "\u7403\u9AD4\u534A\u5F91"
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7380440039074081498, guid: 7c1ad1679d9d5374394847a6907da145, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5
