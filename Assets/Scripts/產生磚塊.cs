@@ -21,7 +21,7 @@ public class 產生磚塊 : MonoBehaviour
 
         bool 要產生磚塊 = false;
         //bPos.z = GetComponent<processCSV>().GetLineCount("/Level/lv01.csv");
-        bPos.z = 14;
+        bPos.z = 15;
         for (int i = 1; i < 9; i++) 
         {
             bPos.x = i;

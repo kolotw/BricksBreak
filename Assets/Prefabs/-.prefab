@@ -94,7 +94,6 @@ GameObject:
   - component: {fileID: 3426768680383494876}
   - component: {fileID: 928064818563139348}
   - component: {fileID: 6031072814652267445}
-  - component: {fileID: 6776140257461241243}
   - component: {fileID: 7215260957400006174}
   - component: {fileID: 4969150043238215162}
   m_Layer: 0
@@ -171,29 +170,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &6776140257461241243
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3446451300381924860}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!136 &7215260957400006174
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -283,6 +259,10 @@ PrefabInstance:
     - target: {fileID: 1640959522939545285, guid: 42265cfa19d1f4e4a96957817668c7eb, type: 3}
       propertyPath: m_Name
       value: Cube_ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640959522939545285, guid: 42265cfa19d1f4e4a96957817668c7eb, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1640959522939545285, guid: 42265cfa19d1f4e4a96957817668c7eb, type: 3}
       propertyPath: m_IsActive

@@ -35,6 +35,7 @@ public class gameMaster : MonoBehaviour
 
         // 開始載入關卡
         getGamePlay();
+        
     }
 
     private void OnDestroy()
@@ -62,6 +63,7 @@ public class gameMaster : MonoBehaviour
             Shooter.SetActive(true);
             isPlaying = true;
             rounds.text = "LEVEL: Random";
+            GameObject.Find("/發射器").GetComponent<發射器>().downOne();
         }
         
         tx.text = "Ball: " + currentLevel.balls;
@@ -99,11 +101,9 @@ public class gameMaster : MonoBehaviour
         if (isPlaying)
         {
             tx.text = "Ball: " + currentLevel.balls;
-            //rounds.text = "LEVEL: " + Level.ToString();
             if (SceneManager.GetActiveScene().name == "LV_Random")
             {
                 rounds.text = "Round: " + 第幾回合.ToString();
-                //if (第幾回合 > 30) isWon=true;
             }
             // 偵測勝敗
             GameObject[] bb = GameObject.FindGameObjectsWithTag("BRICKS");

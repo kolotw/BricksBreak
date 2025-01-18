@@ -1028,7 +1028,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: R
+  m_text: Random
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 20bd2864077c52e41ba02870741b43a4, type: 2}
   m_sharedMaterial: {fileID: -8905528559571217258, guid: 20bd2864077c52e41ba02870741b43a4, type: 2}
@@ -1055,8 +1055,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 90
-  m_fontSizeBase: 90
+  m_fontSize: 54.48
+  m_fontSizeBase: 54.48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1409,10 +1409,10 @@ RectTransform:
   - {fileID: 349692057}
   m_Father: {fileID: 172515636}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 360.794, y: -946}
-  m_SizeDelta: {x: 96.564, y: 101.484}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 331}
+  m_SizeDelta: {x: 395.70703, y: 101.48401}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &574752078
 MonoBehaviour:
@@ -3784,7 +3784,6 @@ MonoBehaviour:
   - {fileID: 1632890090487428151, guid: 79e5b7e0d14028447b1126049f5f78d5, type: 3}
   tx: {fileID: 1140628770}
   rounds: {fileID: 891645961}
-  ballNum: 10
 --- !u!4 &1485599641
 Transform:
   m_ObjectHideFlags: 0

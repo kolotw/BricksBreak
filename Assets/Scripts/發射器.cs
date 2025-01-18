@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,8 +9,6 @@ public class 發射器 : MonoBehaviour
 {
     Ray CameraRay;
     RaycastHit hit;
-    Ray turretRay;
-    RaycastHit hitWall;
     [SerializeField] LayerMask layerMask;
     Vector3 方向;
     Quaternion 旋轉;
@@ -32,7 +32,7 @@ public class 發射器 : MonoBehaviour
     {
         if (!GameObject.Find("00GameMaster").GetComponent<gameMaster>().isPlaying)
         {
-            GameObject.Find("/Canvas/filepath").GetComponent<Text>().text = "notPlaying";
+            //GameObject.Find("/Canvas/filepath").GetComponent<Text>().text = "notPlaying";
             isDown = false;
             StopCoroutine(發射序列());
             return;
@@ -134,19 +134,31 @@ public class 發射器 : MonoBehaviour
         Destroy(ball, 逾時);
     }
 
-    void downOne()
+    public void downOne()
+    {
+        StartCoroutine(DownOneCoroutine());
+    }
+
+    IEnumerator DownOneCoroutine()
     {
         GameObject[] go = GameObject.FindGameObjectsWithTag("BRICKS");
         Vector3 nPos = Vector3.zero;
+        List<Coroutine> movementCoroutines = new List<Coroutine>();
+
+        // 開始所有磚塊的移動
         foreach (GameObject bb in go)
         {
             nPos = bb.transform.position;
             nPos.z = nPos.z - 1;
+
+            // 將每個磚塊的移動協程添加到列表中
+            movementCoroutines.Add(StartCoroutine(依序下降(bb, nPos)));
+
             if (nPos.z < 0)
             {
                 GameObject.Find("00GameMaster").GetComponent<gameMaster>().isLost = true;
             }
-            bb.transform.position = nPos;
+
             if (bb.gameObject.GetComponent<資源>() != null)
             {
                 if (bb.gameObject.GetComponent<資源>().最後要刪除 == true)
@@ -156,10 +168,40 @@ public class 發射器 : MonoBehaviour
             }
         }
 
+        // 等待所有移動完成
+        foreach (Coroutine coroutine in movementCoroutines)
+        {
+            yield return coroutine;
+        }
+
+        // 在所有磚塊移動完成後才產生新的磚塊
         if (SceneManager.GetActiveScene().name == "LV_Random")
         {
             if (gm.第幾回合 < 31)
                 GameObject.Find("/00GameMaster").GetComponent<產生磚塊>().genBricks();
+        }
+    }
+
+    IEnumerator 依序下降(GameObject a, Vector3 b)
+    {
+        if (a == null) yield break;
+
+        float duration = 0.5f; // 移動持續時間
+        float elapsedTime = 0f; // 經過的時間
+        Vector3 startPosition = a.transform.position;
+
+        while (elapsedTime < duration)
+        {
+            if (a == null) yield break;
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / duration;
+            a.transform.position = Vector3.Lerp(startPosition, b, t);
+            yield return null;
+        }
+
+        if (a != null)
+        {
+            a.transform.position = b;
         }
     }
 }
