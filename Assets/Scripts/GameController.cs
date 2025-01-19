@@ -328,10 +328,13 @@ public class GameController : MonoBehaviour
                     if(brick.name == "AddBall(Clone)" || brick.name == "Spread(Clone)" || brick.name == "+(Clone)" || brick.name == "-(Clone)")
                     {
                         Destroy(brick);
-                        yield break;
+                        //yield break;
                         //break;
                     }
-                    isLost = true;
+                    else
+                    {
+                        isLost = true;
+                    }                    
                     //Debug.Log("Game lost - brick passed bottom boundary");
                 }
 
