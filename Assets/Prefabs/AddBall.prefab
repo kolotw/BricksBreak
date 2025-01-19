@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 23174751684438753}
   - component: {fileID: 578520624220246263}
   - component: {fileID: 6847922031408423532}
-  - component: {fileID: 8184729036319730780}
+  - component: {fileID: 6511114007282274943}
   m_Layer: 0
   m_Name: AddBall
   m_TagString: BRICKS
@@ -109,7 +109,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &8184729036319730780
+--- !u!114 &6511114007282274943
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,11 +118,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1632890090487428151}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 368767a4b09ddac4d9e7b1d52212209e, type: 3}
+  m_Script: {fileID: 11500000, guid: bba51c3ae8255834093fce517da18aa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 1
-  tx: {fileID: 2734399895467885803}
+  "\u7E31\u5411\u522A\u9664": {fileID: 0}
+  "\u6A6B\u5411\u522A\u9664": {fileID: 0}
+  "\u6700\u5F8C\u8981\u522A\u9664": 0
 --- !u!1 &3611274763835260846
 GameObject:
   m_ObjectHideFlags: 0

@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -832,7 +831,6 @@ GameObject:
   - component: {fileID: 735280605}
   - component: {fileID: 735280604}
   - component: {fileID: 735280603}
-  - component: {fileID: 735280602}
   m_Layer: 0
   m_Name: "\u767C\u5C04\u5668"
   m_TagString: Untagged
@@ -840,30 +838,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &735280602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 735280601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 013e568d952ca724bb268fce8d026003, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  myBall: {fileID: 9179078464535768976, guid: ca952819f0cb4d048b1bdf98147096c8, type: 3}
-  "\u767C\u5C04\u9EDE": {fileID: 1082406877}
-  line: {fileID: 733577609}
-  "\u7403\u6578": 30
-  "\u5C04\u901F": 20
-  "\u9593\u9694": 0.05
-  "\u7403\u5C3A\u5BF8": 0.25
-  "\u903E\u6642": 10
-  "\u6B63\u5728\u767C\u5C04\u4E2D": 0
 --- !u!65 &735280603
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1619,7 +1593,7 @@ MonoBehaviour:
   - {fileID: 5152854702333375166, guid: 2f0208ccf7ea9684995306e7e0cf9a33, type: 3}
   - {fileID: 1632890090487428151, guid: 79e5b7e0d14028447b1126049f5f78d5, type: 3}
   tx: {fileID: 1140628770}
-  ballNum: 10
+  rounds: {fileID: 0}
 --- !u!4 &1485599641
 Transform:
   m_ObjectHideFlags: 0

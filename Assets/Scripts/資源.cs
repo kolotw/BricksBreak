@@ -11,7 +11,7 @@ public class 資源 : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "BALL") 
-        {
+        {            
             if(this.transform.name== "-(Clone)")
             {
                 GameObject go = Instantiate(橫向刪除, this.transform.position, Quaternion.identity);
@@ -37,6 +37,16 @@ public class 資源 : MonoBehaviour
                     角度,
                 other.transform.eulerAngles.z);
                 other.gameObject.GetComponent<Rigidbody>().velocity = other.transform.forward * 20;
+                最後要刪除 = true;
+            }
+            else if(this.transform.name == "AddBall(Clone)")
+            {
+                if (other.transform.name == "Cube_ball_VertP(Clone)" || other.transform.name == "Cube_ball(Clone)")
+                {
+                    return;
+                }
+                currentLevel.balls++;
+                Destroy(this.gameObject);
                 最後要刪除 = true;
             }
         }

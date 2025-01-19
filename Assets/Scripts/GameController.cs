@@ -58,7 +58,7 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            Debug.LogError("LineRenderer not assigned!");
+            //Debug.LogError("LineRenderer not assigned!");
         }
 
         // 初始化遊戲狀態
@@ -190,7 +190,7 @@ public class GameController : MonoBehaviour
 
             if (isDown)
             {
-                Debug.Log("Triggering downOne");
+                //Debug.Log("Triggering downOne");
                 downOne();
                 isDown = false;
             }
@@ -251,7 +251,7 @@ public class GameController : MonoBehaviour
             lineRenderer.enabled = false;
         }
 
-        Debug.Log("Starting shooting sequence");
+        //Debug.Log("Starting shooting sequence");
         isShooting = true;
         isDown = true;
         StartCoroutine(ShootSequence());
@@ -261,7 +261,7 @@ public class GameController : MonoBehaviour
     IEnumerator ShootSequence()
     {
         
-        Debug.Log($"Shooting {currentLevel.balls} balls");
+        //Debug.Log($"Shooting {currentLevel.balls} balls");
         for (int i = 0; i < currentLevel.balls; i++)
         {
             if (isWon)
@@ -273,14 +273,14 @@ public class GameController : MonoBehaviour
             yield return new WaitForSeconds(shootInterval);
         }
         isShooting = false;
-        Debug.Log("Finished shooting sequence");
+        //Debug.Log("Finished shooting sequence");
     }
 
     void CreateBall()
     {
         if (ballPrefab == null || shootPoint == null)
         {
-            Debug.LogError("Ball prefab or shoot point not assigned!");
+            //Debug.LogError("Ball prefab or shoot point not assigned!");
             return;
         }
 
@@ -304,14 +304,14 @@ public class GameController : MonoBehaviour
 
     public void downOne()
     {
-        Debug.Log("Starting downOne sequence");
+        //Debug.Log("Starting downOne sequence");
         StartCoroutine(DownOneCoroutine());
     }
 
     IEnumerator DownOneCoroutine()
     {
         GameObject[] bricks = GameObject.FindGameObjectsWithTag("BRICKS");
-        Debug.Log($"Found {bricks.Length} bricks to move down");
+        //Debug.Log($"Found {bricks.Length} bricks to move down");
 
         List<Coroutine> movementCoroutines = new List<Coroutine>();
 
@@ -325,8 +325,14 @@ public class GameController : MonoBehaviour
 
                 if (newPosition.z < 0)
                 {
+                    if(brick.name == "AddBall(Clone)" || brick.name == "Spread(Clone)" || brick.name == "+(Clone)" || brick.name == "-(Clone)")
+                    {
+                        Destroy(brick);
+                        yield break;
+                        //break;
+                    }
                     isLost = true;
-                    Debug.Log("Game lost - brick passed bottom boundary");
+                    //Debug.Log("Game lost - brick passed bottom boundary");
                 }
 
                 var resource = brick.GetComponent<資源>();
@@ -347,12 +353,12 @@ public class GameController : MonoBehaviour
             var brickGenerator = GameObject.Find("/00GameMaster")?.GetComponent<產生磚塊>();
             if (brickGenerator != null)
             {
-                Debug.Log("Generating new bricks");
+                //Debug.Log("Generating new bricks");
                 brickGenerator.genBricks();
             }
         }
 
-        Debug.Log("DownOne sequence completed");
+        //Debug.Log("DownOne sequence completed");
     }
 
     IEnumerator MoveDownSequence(GameObject obj, Vector3 targetPos)

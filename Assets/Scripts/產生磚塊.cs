@@ -92,7 +92,7 @@ public class 產生磚塊 : MonoBehaviour
                 }
                 if (bID == 5)
                 {
-                    bb.GetComponent<boxLife>().life = 1;
+                    //bb.GetComponent<boxLife>().life = 1;
                 }
                 else if (bID > 5)
                 {

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -25,39 +23,10 @@ public class boxLife : MonoBehaviour
             life--;
             tx.text = life.ToString();
             changeColor();
-            if (life <= 0)
-            {
-                if(this.transform.name == "AddBall(Clone)")
-                {
-                    //GameObject.Find("/發射器").GetComponent<發射器>().球數++;
-                    currentLevel.balls++;
-                }
-                Destroy(this.gameObject);
-            }
+            if(life <= 0) Destroy(this.gameObject); 
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (this.transform.name == "AddBall(Clone)")
-        {
-            if (other.transform.tag == "BALL")
-            {
-                life--;
-                tx.text = life.ToString();
-                changeColor();
-                if (life <= 0)
-                {
 
-                    {
-                        //GameObject.Find("/發射器").GetComponent<發射器>().球數++;
-                        currentLevel.balls++;
-                    }
-                    Destroy(this.gameObject);
-                }
-            }
-        }
-           
-    }
     void changeColor()
     {
         // 計算生命值的比例（越低的生命值會得到越接近 1 的值）
