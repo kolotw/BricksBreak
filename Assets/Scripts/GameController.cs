@@ -87,7 +87,6 @@ public class GameController : MonoBehaviour
             currentLevel._CurrentLevel = 1;
         }
 
-        string currentScene = SceneManager.GetActiveScene().name;
         if (currentLevel._CurrentLevel > 0)
         {
             nowLevel = currentLevel._CurrentLevel;
@@ -122,7 +121,8 @@ public class GameController : MonoBehaviour
 
     bool CanPlay()
     {
-        if (SceneManager.GetActiveScene().name == "LV01_Ãö¥d¼Ò¦¡" && !levelHasLoadCompleted)
+        //Level
+        if (currentLevel._CurrentLevel > 0 && !levelHasLoadCompleted)
         {
             isPlaying = false;
             return false;

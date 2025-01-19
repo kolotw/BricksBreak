@@ -15,7 +15,7 @@ public class 按鈕 : MonoBehaviour
     }
     public void 開始遊戲() {
         currentLevel._CurrentLevel = 1;
-        SceneManager.LoadScene("LV_Random");
+        SceneManager.LoadScene("LevelScene");
     }
     public void 選擇關卡() {  SceneManager.LoadScene("01_選擇關卡");}
     public void 工作人員() 
@@ -31,7 +31,7 @@ public class 按鈕 : MonoBehaviour
             } else {                
                 currentLevel._CurrentLevel = int.Parse(button.name);
             }
-            SceneManager.LoadScene("LV_Random");
+            SceneManager.LoadScene("LevelScene");
         }
         else
         {
@@ -51,7 +51,7 @@ public class 按鈕 : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("LV_Random");
+            SceneManager.LoadScene("LevelScene");
         }
     }
     public void But_Back()
