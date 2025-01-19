@@ -26,11 +26,16 @@ public class 發射器 : MonoBehaviour
     void Start()
     {
         line.GetComponent<LineRenderer>().enabled = false;
+        gm = GameObject.Find("00GameMaster").GetComponent<gameMaster>();
     }
 
     void Update()
     {
-        if (!GameObject.Find("00GameMaster").GetComponent<gameMaster>().isPlaying)
+        if(gm==null) {
+            gm = GameObject.Find("00GameMaster").GetComponent<gameMaster>();
+            return; 
+        }
+        if (!gm.isPlaying)
         {
             //GameObject.Find("/Canvas/filepath").GetComponent<Text>().text = "notPlaying";
             isDown = false;
@@ -156,7 +161,7 @@ public class 發射器 : MonoBehaviour
 
             if (nPos.z < 0)
             {
-                GameObject.Find("00GameMaster").GetComponent<gameMaster>().isLost = true;
+                gm.isLost = true;
             }
 
             if (bb.gameObject.GetComponent<資源>() != null)
