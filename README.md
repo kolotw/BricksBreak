@@ -1,6 +1,7 @@
 
 **打磚塊 BricksBreak專案 說明**
-遊戲網址：[https://kolotw.github.io/BricksBreak](https://kolotw.github.io/BricksBreak/)
+- 版本：Unity 2022.3.45f1
+- 遊戲網址：[https://kolotw.github.io/BricksBreak](https://kolotw.github.io/BricksBreak/)
 
 這是一個簡單的打磚塊遊戲原型
 內容包含9關，以csv檔設計關卡
