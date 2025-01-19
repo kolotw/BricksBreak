@@ -13,6 +13,7 @@ public class currentLevel : MonoBehaviour
      */
     public static int _CurrentLevel = 0;
     public static int balls=30;
+    [SerializeField] int nowLevel;
     public static currentLevel Instance { get; private set; }
     // Start is called before the first frame update
     void Start()
@@ -28,5 +29,8 @@ public class currentLevel : MonoBehaviour
         }
 
     }
-
+    private void Update()
+    {
+        nowLevel = _CurrentLevel;
+    }
 }

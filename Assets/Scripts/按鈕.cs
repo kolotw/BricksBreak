@@ -15,7 +15,7 @@ public class 按鈕 : MonoBehaviour
     }
     public void 開始遊戲() {
         currentLevel._CurrentLevel = 1;
-        SceneManager.LoadScene("LV01_基礎場景");
+        SceneManager.LoadScene("LV_Random");
     }
     public void 選擇關卡() {  SceneManager.LoadScene("01_選擇關卡");}
     public void 工作人員() 
@@ -27,12 +27,11 @@ public class 按鈕 : MonoBehaviour
         if (button != null)
         {
             if (button.name == "R") {
-                SceneManager.LoadScene("LV_Random");
-            } else {
-                SceneManager.LoadScene("LV01_基礎場景");
+                currentLevel._CurrentLevel = 0; //0 代表是隨機場景
+            } else {                
                 currentLevel._CurrentLevel = int.Parse(button.name);
             }
-            
+            SceneManager.LoadScene("LV_Random");
         }
         else
         {
@@ -52,7 +51,7 @@ public class 按鈕 : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("LV01_基礎場景");
+            SceneManager.LoadScene("LV_Random");
         }
     }
     public void But_Back()

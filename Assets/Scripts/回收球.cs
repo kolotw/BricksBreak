@@ -18,7 +18,7 @@ public class 回收球 : MonoBehaviour
     {
         if(other.tag == "BALL")
         {
-            if (發射器.GetComponent<發射器>().正在發射中)
+            if (GameObject.Find("/00GameMaster").GetComponent<GameController>().isShooting)
             {
                 if (!firstComming)
                 {

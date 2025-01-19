@@ -2123,7 +2123,7 @@ GameObject:
   - component: {fileID: 1485599641}
   - component: {fileID: 1485599640}
   - component: {fileID: 1485599642}
-  - component: {fileID: 1485599643}
+  - component: {fileID: 1485599644}
   m_Layer: 0
   m_Name: 00GameMaster
   m_TagString: Untagged
@@ -2182,7 +2182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd83c3e0c0a536469aa083a8296b576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1485599643
+--- !u!114 &1485599644
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2191,21 +2191,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 1485599639}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd6d75e999dece341bc8b9463b5addc3, type: 3}
+  m_Script: {fileID: 11500000, guid: d63be4a556b112146861542194204b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  ballPrefab: {fileID: 9179078464535768976, guid: ca952819f0cb4d048b1bdf98147096c8, type: 3}
+  shootPoint: {fileID: 1684321722}
+  lineRenderer: {fileID: 733577609}
+  shootSpeed: 30
+  shootInterval: 0.05
+  ballSize: 0.25
+  timeOut: 5
+  isShooting: 0
   isWon: 0
   isLost: 0
-  "\u52DD\u6557\u6587\u5B57": {fileID: 1454697150}
-  BUT_NEXT: {fileID: 1691798734}
-  BUT_BACK: {fileID: 392985154}
-  Level: 1
-  tx: {fileID: 1140628770}
-  rounds: {fileID: 891645961}
-  "\u7B2C\u5E7E\u56DE\u5408": 0
   isPlaying: 0
-  Shooter: {fileID: 864648560831187100}
   levelHasLoadCompleted: 0
+  gameStatusText: {fileID: 1454697150}
+  nextButton: {fileID: 1691798734}
+  backButton: {fileID: 392985154}
+  ballCountText: {fileID: 1140628770}
+  roundText: {fileID: 891645961}
+  nowLevel: 1
+  currentRound: 0
+  shooter: {fileID: 864648560831187100}
 --- !u!1 &1512077428
 GameObject:
   m_ObjectHideFlags: 0
@@ -2522,6 +2533,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1684321722 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8976937999683093103, guid: 7c1ad1679d9d5374394847a6907da145, type: 3}
+  m_PrefabInstance: {fileID: 864648560831187099}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1691798732
 GameObject:
   m_ObjectHideFlags: 0
@@ -3183,11 +3199,15 @@ PrefabInstance:
     - target: {fileID: 1105787418658379680, guid: 7c1ad1679d9d5374394847a6907da145, type: 3}
       propertyPath: gm
       value: 
-      objectReference: {fileID: 1485599643}
+      objectReference: {fileID: 0}
     - target: {fileID: 1105787418658379680, guid: 7c1ad1679d9d5374394847a6907da145, type: 3}
       propertyPath: line
       value: 
       objectReference: {fileID: 733577609}
+    - target: {fileID: 1105787418658379680, guid: 7c1ad1679d9d5374394847a6907da145, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1105787418658379680, guid: 7c1ad1679d9d5374394847a6907da145, type: 3}
       propertyPath: "\u7403\u5C3A\u5BF8"
       value: 0.2

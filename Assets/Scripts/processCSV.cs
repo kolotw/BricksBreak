@@ -10,7 +10,7 @@ public class processCSV : MonoBehaviour
 
     public void getLevel(int level)
     {
-        GameObject.Find("00GameMaster").GetComponent<gameMaster>().levelHasLoadCompleted = false;
+        GameObject.Find("00GameMaster").GetComponent<GameController>().levelHasLoadCompleted = false;
         string levelName = "/lv" + string.Format("{0:D2}", level) + ".csv";
         StartCoroutine(InitializeValues(levelName));
     }
@@ -100,7 +100,7 @@ public class processCSV : MonoBehaviour
         }
 
         allValue = null;
-        GameObject.Find("00GameMaster").GetComponent<gameMaster>().levelHasLoadCompleted = true;
+        GameObject.Find("00GameMaster").GetComponent<GameController>().levelHasLoadCompleted = true;
 
         // 觸發事件，通知磚塊生成完成
         OnBricksGenerated?.Invoke();
