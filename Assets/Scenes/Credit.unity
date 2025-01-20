@@ -1785,7 +1785,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "113-1 \nBricks Breaker\n20250119"
+  m_text: "113-1 \n\nBricks Breaker"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 20bd2864077c52e41ba02870741b43a4, type: 2}
   m_sharedMaterial: {fileID: -8905528559571217258, guid: 20bd2864077c52e41ba02870741b43a4, type: 2}
@@ -1794,8 +1794,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278221055
-  m_fontColor: {r: 1, g: 0.4692436, b: 0, a: 1}
+    rgba: 4278255610
+  m_fontColor: {r: 0.98061085, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
