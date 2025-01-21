@@ -44,9 +44,11 @@ public class GameController : MonoBehaviour
     private int totalBricks = 0;
     public GameObject shooter;
 
+    private Vector3 startPos;
     void Start()
     {
         InitializeGame();
+        startPos = shooter.transform.position;
     }
 
     void InitializeGame()
@@ -203,18 +205,19 @@ public class GameController : MonoBehaviour
         {
             // 計算射擊方向
             Vector3 hitPoint = hit.point;
-            hitPoint.y = 0.25f;
+            hitPoint.y = 0f;
             shootDirection = (hitPoint - shootPoint.transform.position).normalized;
 
             // 計算射擊路徑
             Ray shootRay = new Ray(shootPoint.transform.position + shootDirection * ballSize, shootDirection);
-            RaycastHit wallHit;
+            RaycastHit wallHit;            
 
             if (Physics.SphereCast(shootRay, ballSize, out wallHit, 35f, layerMask))
             {
                 Vector3 collisionPoint = wallHit.point;
                 Vector3 reflectDirection = Vector3.Reflect(shootDirection, wallHit.normal).normalized;
-
+                reflectDirection.y = 0f;
+                collisionPoint.y = 0f;
                 // 計算反射路徑
                 Ray reflectedRay = new Ray(collisionPoint + reflectDirection * ballSize, reflectDirection);
                 RaycastHit secondHit;
@@ -223,11 +226,12 @@ public class GameController : MonoBehaviour
                 if (Physics.Raycast(reflectedRay, out secondHit, 20f, layerMask))
                 {
                     secondHitPoint = secondHit.point;
+                    secondHitPoint.y = 0f;
                 }
 
                 // 設置LineRenderer的路徑點
                 lineRenderer.positionCount = 3;
-                lineRenderer.SetPosition(0, shootPoint.transform.position);
+                lineRenderer.SetPosition(0, startPos);
                 lineRenderer.SetPosition(1, collisionPoint);
                 lineRenderer.SetPosition(2, secondHitPoint);
             }
@@ -240,7 +244,16 @@ public class GameController : MonoBehaviour
     void UpdateShooterRotation()
     {
         rotation = Quaternion.LookRotation(shootDirection, Vector3.up);
-        shooter.transform.rotation = Quaternion.Slerp(shooter.transform.rotation, rotation, 20 * Time.deltaTime);
+        if (Input.GetMouseButton(0))
+        {
+            // 在瞄準時使用平滑旋轉
+            shooter.transform.rotation = Quaternion.Slerp(shooter.transform.rotation, rotation, 200 * Time.deltaTime);
+        }
+        else
+        {
+            // 在發射時直接設置旋轉
+            shooter.transform.rotation = rotation;
+        }
         shooter.transform.eulerAngles = new Vector3(0f, shooter.transform.eulerAngles.y, 0f);
     }
 
@@ -251,7 +264,11 @@ public class GameController : MonoBehaviour
             lineRenderer.enabled = false;
         }
 
-        //Debug.Log("Starting shooting sequence");
+        // 在開始發射前確保發射器已經完全旋轉到目標角度
+        rotation = Quaternion.LookRotation(shootDirection, Vector3.up);
+        shooter.transform.rotation = rotation;
+        shooter.transform.eulerAngles = new Vector3(0f, shooter.transform.eulerAngles.y, 0f);
+
         isShooting = true;
         isDown = true;
         StartCoroutine(ShootSequence());

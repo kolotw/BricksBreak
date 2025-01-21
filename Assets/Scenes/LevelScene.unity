@@ -946,8 +946,8 @@ LineRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733577608}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 0
@@ -958,7 +958,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d3f406fc01f246a4a88a2d62a244ab5d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1034,7 +1034,7 @@ LineRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 4
+    textureMode: 2
     textureScale: {x: 100, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
@@ -2217,6 +2217,7 @@ MonoBehaviour:
   nowLevel: 1
   currentRound: 0
   shooter: {fileID: 864648560831187100}
+  offsetX: {fileID: 0}
 --- !u!1 &1512077428
 GameObject:
   m_ObjectHideFlags: 0
@@ -3192,6 +3193,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 465411117182381452, guid: 7c1ad1679d9d5374394847a6907da145, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.495
+      objectReference: {fileID: 0}
     - target: {fileID: 819719516218730936, guid: 7c1ad1679d9d5374394847a6907da145, type: 3}
       propertyPath: m_Name
       value: "\u767C\u5C04\u5668"
