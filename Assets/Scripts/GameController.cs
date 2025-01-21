@@ -228,7 +228,7 @@ public class GameController : MonoBehaviour
                     secondHitPoint = secondHit.point;
                     secondHitPoint.y = 0f;
                 }
-
+                startPos = shooter.transform.position;
                 // 設置LineRenderer的路徑點
                 lineRenderer.positionCount = 3;
                 lineRenderer.SetPosition(0, startPos);
