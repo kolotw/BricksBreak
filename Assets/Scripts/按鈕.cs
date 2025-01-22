@@ -28,7 +28,14 @@ public class 按鈕 : MonoBehaviour
         {
             if (button.name == "R") {
                 currentLevel._CurrentLevel = 0; //0 代表是隨機場景
-            } else {                
+                currentLevel.balls = 30;
+            }
+            else if(button.name == "K")
+            {
+                currentLevel._CurrentLevel = -1; //keep shooting
+                currentLevel.balls = 999;
+            }
+            else {                
                 currentLevel._CurrentLevel = int.Parse(button.name);
             }
             SceneManager.LoadScene("LevelScene");

@@ -14,7 +14,8 @@ public class boxLife : MonoBehaviour
         s = 1f;
         v = 1f;
         changeColor();
-        tx.text = life.ToString(); 
+        tx.text = life.ToString();
+        setFontSize(); 
     }
     private void OnCollisionEnter(Collision other)
     {
@@ -22,22 +23,43 @@ public class boxLife : MonoBehaviour
         {
             life--;
             tx.text = life.ToString();
-            changeColor();
-            if(life <= 0) Destroy(this.gameObject); 
+            changeColor();           
+            if(life <= 0) Destroy(this.gameObject);
+            setFontSize();
         }
     }
-
+    void setFontSize()
+    {
+        if(this.name == "◥(Clone)" || this.name == "◤(Clone)" || this.name == "◣(Clone)" || this.name == "◢(Clone)")
+        {
+            if (life > 99)
+            {
+                tx.fontSize = 3.5f;
+            }
+            else
+            {
+                tx.fontSize = 5f;
+            }
+        }
+        
+    }
     void changeColor()
     {
-        // 計算生命值的比例（越低的生命值會得到越接近 1 的值）
-        float lifeFactor = 1f - ((float)life / (currentLevel.balls + 100));
+        float lifeFactor = 0;
+        if (currentLevel._CurrentLevel >= 0)
+        {
+            // 計算生命值的比例（生命值高時接近 0，低時接近 1）
+            lifeFactor = 1f - ((float)life / (currentLevel.balls + 100));
+        }
+        else
+        {
+            // 計算生命值的比例（生命值高時接近 0，低時接近 1）
+            lifeFactor = 1f - ((float)life / (GameObject.Find("/00GameMaster/").GetComponent<GameController>().currentRound + 100));
+        }
+        
 
-        // 將 lifeFactor 映射到 0-150 的範圍
-        // lifeFactor 接近 1 時（生命低），h 會接近 150
-        // lifeFactor 接近 0 時（生命高），h 會接近 0
-        h = (lifeFactor * 150f) / 360f;
-
-        // 保持最大飽和度和明度以獲得鮮艷的顏色
+        // 紅色(0度)到綠色(120度)的映射
+        h = (lifeFactor * 120f) / 360f;
         s = 1f;
         v = 1f;
 
@@ -45,17 +67,29 @@ public class boxLife : MonoBehaviour
         _render.material.color = _color;
         changeTextColor();
     }
+
     void changeTextColor()
     {
-        // 取得前一個顏色的 HSV 值
-        Color.RGBToHSV(_render.material.color, out float prevH, out float prevS, out float prevV);
+        if (life <= 3)
+        {
+            tx.color = Color.HSVToRGB(0.1f, 0.1f, 0.1f);
+            return;
+        }
 
-        // 計算互補色的色相（加 0.5 相當於加 180 度）
-        float complementaryH = (prevH + 0.5f) % 1.0f;
+        // 計算背景色的感知亮度
+        Color backgroundColor = _render.material.color;
+        float brightness = backgroundColor.r * 0.299f + backgroundColor.g * 0.587f + backgroundColor.b * 0.114f;
 
-        // 使用互補色相，保持原本的飽和度，但使用固定的明度 0.3
-        Color _color = Color.HSVToRGB(complementaryH, prevS, 1f);
-
-        tx.color = _color;
+        // 根據背景亮度選擇合適的文字顏色
+        if (brightness > 0.6f)
+        {
+            // 背景偏亮（如紅色背景）時使用深色文字
+            tx.color = new Color(0.1f, 0.1f, 0.1f, 1f);
+        }
+        else
+        {
+            // 背景偏暗時使用亮色文字
+            tx.color = new Color(0.95f, 0.95f, 0.95f, 1f);
+        }
     }
 }

@@ -19,6 +19,12 @@ public class 產生磚塊 : MonoBehaviour
         int 最多 = 99 + currentLevel.balls + 10;
         int 最少 = currentLevel.balls - 29;
 
+        if (GameObject.Find("00GameMaster").GetComponent<GameController>().isSpecialLevel)
+        {
+            最多 = 99 + GameObject.Find("00GameMaster").GetComponent<GameController>().currentRound + 10;
+            最少 = GameObject.Find("00GameMaster").GetComponent<GameController>().currentRound;
+        }
+
         bool 要產生磚塊 = false;
         //bPos.z = GetComponent<processCSV>().GetLineCount("/Level/lv01.csv");
         bPos.z = 15;
@@ -72,7 +78,7 @@ public class 產生磚塊 : MonoBehaviour
             }
             if (要產生磚塊)
             {
-                print(bID);
+                //print(bID);
                 GameObject bb = Instantiate(磚塊[bID], bPos, Quaternion.identity);
                 switch(bb.transform.name)
                 {
