@@ -2225,29 +2225,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63be4a556b112146861542194204b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerMask:
+  "\u7403\u9810\u88FD\u9AD4": {fileID: 9179078464535768976, guid: ca952819f0cb4d048b1bdf98147096c8, type: 3}
+  "\u767C\u5C04\u9EDE": {fileID: 1684321722}
+  "\u7DDA\u6E32\u67D3\u5668": {fileID: 733577609}
+  "\u767C\u5C04\u901F\u5EA6": 30
+  "\u767C\u5C04\u9593\u9694": 0.05
+  "\u7403\u9AD4\u5927\u5C0F": 0.25
+  "\u7403\u9AD4\u5B58\u5728\u6642\u9593": 5
+  "\u6B63\u5728\u767C\u5C04": 0
+  "\u5DF2\u7372\u52DD": 0
+  "\u5DF2\u5931\u6557": 0
+  "\u904A\u6232\u9032\u884C\u4E2D": 0
+  "\u95DC\u5361\u8F09\u5165\u5B8C\u6210": 0
+  "\u7279\u6B8A\u95DC\u5361": 0
+  "\u904A\u6232\u72C0\u614B\u6587\u5B57": {fileID: 1454697150}
+  "\u4E0B\u4E00\u95DC\u6309\u9215": {fileID: 1691798734}
+  "\u8FD4\u56DE\u6309\u9215": {fileID: 392985154}
+  "\u7403\u6578\u91CF\u6587\u5B57": {fileID: 1140628770}
+  "\u56DE\u5408\u6587\u5B57": {fileID: 891645961}
+  "\u7576\u524D\u95DC\u5361": 1
+  "\u7576\u524D\u56DE\u5408": 0
+  "\u767C\u5C04\u5668": {fileID: 864648560831187100}
+  "\u5C64\u7D1A\u906E\u7F69":
     serializedVersion: 2
     m_Bits: 64
-  ballPrefab: {fileID: 9179078464535768976, guid: ca952819f0cb4d048b1bdf98147096c8, type: 3}
-  shootPoint: {fileID: 1684321722}
-  lineRenderer: {fileID: 733577609}
-  shootSpeed: 30
-  shootInterval: 0.05
-  ballSize: 0.25
-  timeOut: 5
-  isShooting: 0
-  isWon: 0
-  isLost: 0
-  isPlaying: 0
-  levelHasLoadCompleted: 0
-  gameStatusText: {fileID: 1454697150}
-  nextButton: {fileID: 1691798734}
-  backButton: {fileID: 392985154}
-  ballCountText: {fileID: 1140628770}
-  roundText: {fileID: 891645961}
-  nowLevel: 1
-  currentRound: 0
-  shooter: {fileID: 864648560831187100}
 --- !u!1 &1512077428
 GameObject:
   m_ObjectHideFlags: 0

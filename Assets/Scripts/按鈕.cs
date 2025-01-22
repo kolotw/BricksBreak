@@ -33,10 +33,11 @@ public class 按鈕 : MonoBehaviour
             else if(button.name == "K")
             {
                 currentLevel._CurrentLevel = -1; //keep shooting
-                currentLevel.balls = 999;
+                currentLevel.balls = 999;                
             }
             else {                
                 currentLevel._CurrentLevel = int.Parse(button.name);
+                currentLevel.balls = 30;
             }
             SceneManager.LoadScene("LevelScene");
         }
@@ -47,6 +48,13 @@ public class 按鈕 : MonoBehaviour
     }
     public void But_Next()
     {
+        if (GameObject.Find("/00GameMaster").GetComponent<GameController>().特殊關卡)
+        {
+            currentLevel._CurrentLevel = -1; //keep shooting
+            currentLevel.balls = 999;
+            SceneManager.LoadScene("LevelScene");
+            return;
+        }
         GameObject[] bb = GameObject.FindGameObjectsWithTag("BRICKS");
         foreach (GameObject bb2 in bb) { 
             Destroy(bb2);

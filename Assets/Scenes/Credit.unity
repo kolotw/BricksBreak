@@ -1060,7 +1060,7 @@ GameObject:
   - component: {fileID: 891645962}
   - component: {fileID: 891645961}
   m_Layer: 0
-  m_Name: Rounds
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1794,8 +1794,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279238400
-  m_fontColor: {r: 0, g: 1, b: 0.05704665, a: 1}
+    rgba: 4278240767
+  m_fontColor: {r: 1, g: 0.77173215, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

@@ -19,10 +19,10 @@ public class 產生磚塊 : MonoBehaviour
         int 最多 = 99 + currentLevel.balls + 10;
         int 最少 = currentLevel.balls - 29;
 
-        if (GameObject.Find("00GameMaster").GetComponent<GameController>().isSpecialLevel)
+        if (GameObject.Find("00GameMaster").GetComponent<GameController>().特殊關卡)
         {
-            最多 = 99 + GameObject.Find("00GameMaster").GetComponent<GameController>().currentRound + 10;
-            最少 = GameObject.Find("00GameMaster").GetComponent<GameController>().currentRound;
+            最多 = 99 + GameObject.Find("00GameMaster").GetComponent<GameController>().當前回合 + 10;
+            最少 = GameObject.Find("00GameMaster").GetComponent<GameController>().當前回合;
         }
 
         bool 要產生磚塊 = false;
@@ -50,6 +50,7 @@ public class 產生磚塊 : MonoBehaviour
             else if (shape % 9 == 0)
             {
                 //資源 ●
+                if (GameObject.Find("00GameMaster").GetComponent<GameController>().特殊關卡) return;
                 bID = 5;
                 要產生磚塊 = true;
             }

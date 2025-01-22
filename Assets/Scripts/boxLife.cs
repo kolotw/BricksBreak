@@ -54,7 +54,7 @@ public class boxLife : MonoBehaviour
         else
         {
             // 計算生命值的比例（生命值高時接近 0，低時接近 1）
-            lifeFactor = 1f - ((float)life / (GameObject.Find("/00GameMaster/").GetComponent<GameController>().currentRound + 100));
+            lifeFactor = 1f - ((float)life / (GameObject.Find("/00GameMaster/").GetComponent<GameController>().當前回合 + 100));
         }
         
 
