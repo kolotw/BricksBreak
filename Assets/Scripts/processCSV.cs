@@ -3,10 +3,15 @@ using System;
 using System.Collections;
 using UnityEngine.Networking;
 
+/*
+這個是專門處理CSV檔
+.csv檔 是文字檔為基礎，以逗號分格欄位 的一種excel格式
+.csv檔 編碼要用 UTF-8，如果要在Excel打開，編碼要用UTF-8 BOM格式，如果要放網站則不要BOM
+ */
 public class processCSV : MonoBehaviour
 {
     private string[,] allValue;
-    public static event Action OnBricksGenerated; // 事件宣告
+    public static event Action OnBricksGenerated; // 事件宣告 磚塊已生成
 
     public void getLevel(int level)
     {
@@ -26,8 +31,10 @@ public class processCSV : MonoBehaviour
 
     public IEnumerator LoadAllValues(string fileName, Action callback)
     {
+        //CSV檔要存在StreamingAssets資料夾
         string filePath = Application.streamingAssetsPath + "/" + fileName;
 
+        //如果運行平台是WebGL，資料會從網站讀取，會比其他平台花時間，所以要用協程等待
         if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
             UnityWebRequest request = UnityWebRequest.Get(filePath);
@@ -72,6 +79,11 @@ public class processCSV : MonoBehaviour
         }
 
         callback?.Invoke();
+        //上面等於下面，簡寫
+        //if(callback != null)
+        //{
+        //    callback();
+        //}
     }
 
     void 生磚塊()

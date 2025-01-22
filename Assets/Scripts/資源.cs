@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+  資源 磚塊 的互動
+  - 橫向全刪
+  + 直橫全刪
+  Spread 改變球的方向
+  AddBall 加球
+ */
 public class 資源 : MonoBehaviour
 {
     public GameObject 縱向刪除;

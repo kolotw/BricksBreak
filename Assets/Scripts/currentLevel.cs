@@ -10,6 +10,7 @@ public class currentLevel : MonoBehaviour
     當遊戲又回到首頁時，有可能再產生一次這個物件
     所以要確認它不會再被產生
     這是 Singleton模式。
+    Singleton 模式是一種設計模式，確保執行專案時只有一個實例，並提供全專案可調用參數。
      */
     public static int _CurrentLevel = 0;
     public static int balls=30;

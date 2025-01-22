@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class boxLife : MonoBehaviour
 {
+    /*
+     磚塊的生命與顏色、文字顏色
+     */
     public int life = 10;
     public TextMeshPro tx;
     float h, s, v;

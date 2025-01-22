@@ -1,18 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class 按鈕 : MonoBehaviour
 {
-    //public int currentLevel = 0;
-    private void Start()
-    {
-        //DontDestroyOnLoad(this); 
-    }
+
     public void 開始遊戲() {
         currentLevel._CurrentLevel = 1;
         SceneManager.LoadScene("LevelScene");
@@ -50,9 +42,7 @@ public class 按鈕 : MonoBehaviour
     {
         if (GameObject.Find("/00GameMaster").GetComponent<GameController>().特殊關卡)
         {
-            currentLevel._CurrentLevel = -1; //keep shooting
-            currentLevel.balls = 999;
-            SceneManager.LoadScene("LevelScene");
+            SceneManager.LoadScene("Credit");
             return;
         }
         GameObject[] bb = GameObject.FindGameObjectsWithTag("BRICKS");

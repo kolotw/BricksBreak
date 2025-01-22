@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
+/*
+ 就是Game Master
+ 
+ */
 public class GameController : MonoBehaviour
 {
     #region 變數定義
@@ -565,7 +569,7 @@ public class GameController : MonoBehaviour
     void 處理勝利狀態()
     {
         if (發射器 != null) 發射器.SetActive(false);
-        if (遊戲狀態文字 != null) 遊戲狀態文字.text = "勝利";
+        if (遊戲狀態文字 != null) 遊戲狀態文字.text = "WIN";
         if (下一關按鈕 != null) 下一關按鈕.gameObject.SetActive(true);
         if (返回按鈕 != null) 返回按鈕.gameObject.SetActive(true);
 
@@ -575,7 +579,7 @@ public class GameController : MonoBehaviour
 
     void 處理失敗狀態()
     {
-        if (遊戲狀態文字 != null) 遊戲狀態文字.text = "失敗";
+        if (遊戲狀態文字 != null) 遊戲狀態文字.text = "LOSE";
         if (返回按鈕 != null) 返回按鈕.gameObject.SetActive(true);
         遊戲進行中 = false;
     }

@@ -26,16 +26,16 @@ public class 產生磚塊 : MonoBehaviour
         }
 
         bool 要產生磚塊 = false;
-        //bPos.z = GetComponent<processCSV>().GetLineCount("/Level/lv01.csv");
-        bPos.z = 15;
-        for (int i = 1; i < 9; i++) 
-        {
-            bPos.x = i;
-            bPos.y = 0;
 
-            //bPos.z = 12;
-            int shape = Random.Range(最少, 最多);
-            if (shape % 12 == 0)
+        bPos.z = 15; //在畫面最上層生成
+        bPos.y = 0; //固定Y軸位置
+        for (int i = 1; i < 9; i++)  //i是橫向的座標 1-8
+        {
+            bPos.x = i; 
+
+            int shape = Random.Range(最少, 最多); //隨機生成一個數字
+            //用隨機生成的數字，%(一個數值) 以取餘數的方式得到磚塊的ID
+            if (shape % 12 == 0) 
             {
                 //三角形 ID: 1,2,3,4
                 bID = Random.Range(1,4); 
@@ -83,6 +83,7 @@ public class 產生磚塊 : MonoBehaviour
                 GameObject bb = Instantiate(磚塊[bID], bPos, Quaternion.identity);
                 switch(bb.transform.name)
                 {
+                    //調整三角型模型的角度
                     case "◥(Clone)":
                         bb.transform.eulerAngles = new Vector3(-90, 0, 0);
                         break;
@@ -99,7 +100,7 @@ public class 產生磚塊 : MonoBehaviour
                 }
                 if (bID == 5)
                 {
-                    //bb.GetComponent<boxLife>().life = 1;
+                    //資源沒有血量
                 }
                 else if (bID > 5)
                 {
@@ -107,7 +108,7 @@ public class 產生磚塊 : MonoBehaviour
                 }
                 else
                 {
-                    bb.GetComponent<boxLife>().life = shape;
+                    bb.GetComponent<boxLife>().life = shape;  //剛隨機生成的數值即為磚塊的血量生命值
                 }
                 
             }
