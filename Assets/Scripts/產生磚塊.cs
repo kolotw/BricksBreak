@@ -22,7 +22,7 @@ public class 產生磚塊 : MonoBehaviour
         if (GameObject.Find("00GameMaster").GetComponent<GameController>().特殊關卡)
         {
             最多 = 99 + GameObject.Find("00GameMaster").GetComponent<GameController>().當前回合 + 10;
-            最少 = GameObject.Find("00GameMaster").GetComponent<GameController>().當前回合;
+            最少 = GameObject.Find("00GameMaster").GetComponent<GameController>().當前回合 + 1;
         }
 
         bool 要產生磚塊 = false;
