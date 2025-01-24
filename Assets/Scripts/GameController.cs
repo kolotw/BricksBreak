@@ -32,6 +32,7 @@ public class GameController : MonoBehaviour
     public bool 特殊關卡 = false;
     private bool 正在瞄準 = false;
     private bool 特殊關卡初次生成 = true;
+    private bool 回合結束 = false;
 
     [Header("UI元素")]
     public Text 遊戲狀態文字;
@@ -190,18 +191,27 @@ public class GameController : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            正在瞄準 = true;
+            if (特殊關卡 || (!正在發射 && !已下移))
+            {
+                正在瞄準 = true;
+            }
+
+            //正在瞄準 = true;
             if (線渲染器 != null)
             {
                 線渲染器.enabled = true;
                 處理瞄準();
             }
         }
-        else if (Input.GetMouseButtonUp(0) && !正在發射)
+        else if (Input.GetMouseButtonUp(0))
         {
-            正在瞄準 = false;
+            
             if (線渲染器 != null) 線渲染器.enabled = false;
-            開始發射();
+            if (!正在發射)
+            {
+                正在瞄準 = false;
+                開始發射();
+            }            
         }
 
         if (!特殊關卡)
@@ -381,12 +391,17 @@ public class GameController : MonoBehaviour
         if (GameObject.FindGameObjectsWithTag("BALL").Length == 0)
         {
             正在發射 = false;
-            GameObject.Find("/牆/下").GetComponent<回收球>().移動發射器();
+            var 下牆 = GameObject.Find("/牆/下").GetComponent<回收球>();
 
             if (已下移)
             {
+                下牆.移動發射器();
                 下移一格();
                 已下移 = false;
+            }
+            else
+            {
+                下牆.移動發射器(); // 確保每次都會移動發射器
             }
         }
     }

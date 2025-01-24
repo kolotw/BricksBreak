@@ -34,7 +34,7 @@ public class 回收球 : MonoBehaviour
         發射器.transform.position = Vector3.Lerp(發射器.transform.position, 下一個.transform.position, 0.5f);
 
         Quaternion rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
-        發射器.transform.rotation = Quaternion.Slerp(發射器.transform.rotation, rotation, 20 * Time.deltaTime);
+        發射器.transform.rotation = Quaternion.Slerp(發射器.transform.rotation, rotation, 200 * Time.deltaTime);
         發射器.transform.eulerAngles = new Vector3(0f, 發射器.transform.eulerAngles.y, 0f);
 
     }
